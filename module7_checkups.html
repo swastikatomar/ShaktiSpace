@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Checkups</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f9f3f3, #d4e3fc, #e8f8f5, #fef9e7, #f2e0ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #333;
+  }
+  
+  /* Optional: animated gradient shift for aesthetic vibe */
+  @keyframes gradientShift {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffffdd; /* translucent white for glassy effect */
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+  }
+  
+
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+    }
+    p {
+      color: #34495e;
+      line-height: 1.6;
+    }
+    .cta-button {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color:rgb(116, 169, 196);
+      color: #ffffff;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+      background-color: rgb(111, 137, 204);
+      transform: scale(1.25);
+      transition: all 0.3s ease;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Regular Checkups</h1>
+    <p>Regular health checkups are vital for early detection of potential health issues. Scheduling routine examinations helps in maintaining overall well-being and preventing serious illnesses.</p>
+    <a href="module7_book_appointment.html" class="cta-button">Schedule a Checkup</a>
+  </div>
+</body>
+</html>

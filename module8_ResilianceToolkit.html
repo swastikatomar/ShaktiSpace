@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strength Cards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .flip-card {
+      perspective: 1000px;
+    }
+    .flip-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front, .flip-back {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .flip-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen overflow-hidden">
+  <!-- Background Video -->
+  <video autoplay muted loop class="absolute w-full h-full object-cover -z-10">
+    <source src="images/forestt.mp4" type="video/mp4">
+  </video>
+
+  <!-- Header -->
+  <header class="text-center py-12 bg-gradient-to-r from-yellow-100 to-green-100 bg-opacity-50">
+    <h1 class="text-5xl font-extrabold text-green-700 mb-4">🛡️ Strength Cards</h1>
+    <p class="text-2xl font-semibold text-yellow-700 italic">“Find your calm, fuel your courage.” 🌿💫</p>
+  </header>
+
+  <!-- Cards Container -->
+  <div class="flex flex-wrap justify-center gap-6 px-6 py-12">
+
+    <!-- Deep Breathing -->
+    <div class="flip-card w-72 h-64">
+      <div class="flip-inner relative w-full h-full">
+        <div class="flip-front bg-white shadow-lg">
+          
+          <h2 class="text-lg font-bold text-green-800">Deep Breathing</h2>
+          <p class="text-gray-700 text-sm text-center">.🌬️🫁Breathe in calm, breathe out stress.Take a moment. Inhale slowly through your nose, letting your belly rise. Hold for a few seconds. Then exhale gently through your mouth, feeling your body soften..🌬️🫁</p>
+        </div>
+        <div class="flip-back bg-green-200">
+            <div class="text-center font-semibold">
+                <p>Try the 4-7-8 technique:</p>
+                <ul class="list-disc list-inside text-left font-normal mt-2">
+                  <li>🫁 Inhale for 4 seconds</li>
+                  <li>⏸️ Hold for 7 seconds</li>
+                  <li>🌫️ Exhale for 8 seconds</li>
+                </ul>
+              </div>
+              
+        </div>
+      </div>
+    </div>
+
+    <!-- Grounding Method -->
+    <div class="flip-card w-72 h-64">
+      <div class="flip-inner relative w-full h-full">
+        <div class="flip-front bg-white shadow-lg">
+          
+          <h2 class="text-lg font-bold text-green-800">5-4-3-2-1 Grounding</h2>
+          <p class="text-gray-700 text-sm text-center">Name 5 things you can see... 👁️</p>
+          <p class="text-gray-700 text-sm text-center">Name 4 things you can touch... 👐</p>
+          <p class="text-gray-700 text-sm text-center">Name 3 things you can hear... 👂</p>
+          <p class="text-gray-700 text-sm text-center">Name 2 things you can smell... 👃</p>
+          <p class="text-gray-700 text-sm text-center">Name 1 things you can taste... 👅</p>
+          
+        </div>
+        <div class="flip-back bg-yellow-200">
+          <p class="text-center ">The 5-4-3-2-1 Grounding Technique is a simple mindfulness tool that uses your five senses to pull your attention away from anxious thoughts and back to the present moment.🧠🧭</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Affirmation Randomizer -->
+    <div class="w-72 h-64 bg-white p-6 rounded-xl shadow-lg flex flex-col items-center justify-center text-center">
+      <div class="w-20 h-20 bg-yellow-200 rounded-full mb-4 flex items-center justify-center cursor-pointer animate-bounce" id="quoteBtn">
+        🌀
+      </div>
+      <h2 class="text-lg font-bold text-green-800">Affirmation Flash</h2>
+      <p id="quoteText" class="mt-2 text-sm text-gray-700 italic">Click the swirl for a surprise! 🌟</p>
+    </div>
+
+    <!-- Cognitive Reframes -->
+    <div class="flip-card w-72 h-64">
+      <div class="flip-inner relative w-full h-full">
+        <div class="flip-front bg-white shadow-lg">
+          
+            <div class="w-50 h-40 rounded-xl overflow-hidden shadow-lg">
+                <img src="images/think.jpg" alt="Grounding Technique Illustration"
+                     class="w-full h-full object-cover" />
+              </div>
+              
+          <h2 class="text-lg font-bold text-green-800">Cognitive Reframes</h2>
+          <p class="text-gray-700 text-sm text-center">“What would I tell a friend in this situation?” 💬❤️</p>
+        </div>
+        <div class="flip-back bg-green-200 text-sm text-center">
+          <p>Challenge this thought — is it 💯 true?</p>
+          <p class="mt-2">🌊 Emotions are waves — they rise and fall. Let them pass.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script for Affirmation Flash -->
+  <script>
+    const quotes = [
+      "You are capable of amazing things. 💪",
+      "Every breath is a fresh start. 🌬️",
+      "You’ve survived 100% of your worst days. 🛡️",
+      "This feeling is temporary. 🌈",
+      "Your calm is your power. 🧘‍♀️"
+    ];
+
+    document.getElementById('quoteBtn').addEventListener('click', () => {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('quoteText').textContent = random;
+    });
+  </script>
+</body>
+
+</html>

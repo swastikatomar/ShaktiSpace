@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Anxiety Cycle Reflection Timeline</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5eeff 0%, #e6e0ff 100%);
+            color: #4a4a4a;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background Animation */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-bubble {
+    position: absolute;
+    border-radius: 10%;
+    background: rgba(119, 85, 226, 0.1);
+    animation: float 15s infinite ease-in-out;
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(119, 85, 226, 0.2);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-50px) translateX(25px) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(-25px) rotate(-15deg);
+    }
+    75% {
+        transform: translateY(-70px) translateX(10px) rotate(5deg);
+    }
+}
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #5d3fd3;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+            animation: titlePulse 3s infinite alternate;
+        }
+
+        @keyframes titlePulse {
+            from {
+                text-shadow: 0 0 5px rgba(93, 63, 211, 0.1);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(93, 63, 211, 0.3);
+            }
+        }
+
+        .intro-quote {
+            color: #7755e2;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .sub-quote {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #7755e2;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            border-radius: 4px;
+            animation: glowLine 2s infinite alternate;
+        }
+
+        @keyframes glowLine {
+            from {
+                box-shadow: 0 0 2px rgba(119, 85, 226, 0.3);
+            }
+            to {
+                box-shadow: 0 0 8px rgba(119, 85, 226, 0.7);
+            }
+        }
+
+        /* Card Styles */
+        .reflection-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-left: 45px;
+            margin-bottom: 30px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0.7;
+            transform: translateY(20px);
+        }
+
+        .reflection-card.active {
+            opacity: 1;
+            transform: translateY(0);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            animation: cardAppear 0.5s forwards;
+        }
+
+        @keyframes cardAppear {
+            from {
+                transform: translateY(20px);
+                opacity: 0.7;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .reflection-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .card-marker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: -38px;
+            top: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            font-size: 18px;
+            animation: markerPulse 2s infinite alternate;
+        }
+
+        @keyframes markerPulse {
+            from {
+                transform: scale(1);
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            }
+            to {
+                transform: scale(1.1);
+                box-shadow: 0 5px 15px rgba(119, 85, 226, 0.3);
+            }
+        }
+
+        .card-title {
+            color: #5d3fd3;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-subtitle {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* Input Areas */
+        .prompt-list {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .prompt-list li {
+            margin-bottom: 8px;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            resize: none;
+        }
+
+        textarea:focus, input[type="text"]:focus {
+            border-color: #7755e2;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(119, 85, 226, 0.2);
+            animation: inputGlow 1.5s infinite alternate;
+        }
+
+        @keyframes inputGlow {
+            from {
+                box-shadow: 0 0 0 2px rgba(119, 85, 226, 0.1);
+            }
+            to {
+                box-shadow: 0 0 0 4px rgba(119, 85, 226, 0.2);
+            }
+        }
+
+        /* Interactive Elements */
+        .body-map {
+            text-align: center;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .body-map img {
+            max-width: 200px;
+        }
+
+        .body-spots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .body-spot {
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 0, 0, 0.5);
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+            transform: scale(0);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: spotPulse 1.5s infinite alternate;
+        }
+
+        @keyframes spotPulse {
+            from {
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+            }
+            to {
+                box-shadow: 0 0 0 5px rgba(255, 0, 0, 0.1);
+            }
+        }
+
+        .intensity-slider {
+            width: 100%;
+            margin: 20px 0;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #e0e0ff, #7755e2);
+            outline: none;
+        }
+
+        .intensity-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #5d3fd3;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 5px rgba(93, 63, 211, 0.3);
+        }
+
+        .intensity-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .coping-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .coping-icon {
+            cursor: pointer;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 70px;
+            text-align: center;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .coping-icon.selected {
+            background-color: #e6e0ff;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            animation: iconSelected 0.5s forwards;
+        }
+
+        @keyframes iconSelected {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .coping-icon:hover {
+            background-color: #e6e0ff;
+            transform: translateY(-3px);
+        }
+
+        .emoji-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+
+        .emoji {
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .emoji:hover, .emoji.selected {
+            transform: scale(1.3);
+            animation: emojiPulse 0.5s ease;
+        }
+
+        @keyframes emojiPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.4);
+            }
+            100% {
+                transform: scale(1.3);
+            }
+        }
+
+        /* Progress bar */
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #7755e2, #5d3fd3);
+            width: 0%;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                           transparent 0%, 
+                           rgba(255, 255, 255, 0.3) 50%, 
+                           transparent 100%);
+            animation: progressShine 1.5s infinite;
+        }
+
+        @keyframes progressShine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #7755e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                           transparent 0%, 
+                           rgba(255, 255, 255, 0.2) 50%, 
+                           transparent 100%);
+            transform: translateX(-100%);
+        }
+
+        button:hover::after {
+            animation: buttonShine 1s forwards;
+        }
+
+        @keyframes buttonShine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        button:hover {
+            background-color: #5d3fd3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(93, 63, 211, 0.3);
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        button:disabled::after {
+            display: none;
+        }
+
+        .btn-prev {
+            background-color: #f5f5f5;
+            color: #5d3fd3;
+        }
+
+        .btn-prev:hover {
+            background-color: #e6e0ff;
+            box-shadow: 0 4px 10px rgba(93, 63, 211, 0.1);
+        }
+
+        /* Summary Modal */
+        .summary-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .summary-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .summary-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .summary-modal.active .summary-content {
+            transform: translateY(0);
+            animation: modalAppear 0.5s forwards;
+        }
+
+        @keyframes modalAppear {
+            from {
+                transform: translateY(30px);
+                opacity: 0.7;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .summary-title {
+            text-align: center;
+            color: #5d3fd3;
+            margin-bottom: 20px;
+        }
+
+        .cycle-chart {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0ff;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .reflection-card {
+                margin-left: 35px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .card-marker {
+                left: -33px;
+                width: 25px;
+                height: 25px;
+                font-size: 16px;
+            }
+        }
+
+        /* Hiding elements initially */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background" id="animatedBg"></div>
+
+    <div class="container">
+        <header>
+            <h1>Your Anxiety Cycle Reflection Timeline</h1>
+            <p class="intro-quote">"Take a moment — or a page — to reflect honestly. Understanding where you're stuck is the first step toward moving forward." ✨</p>
+            <p class="sub-quote">"Awareness is the first step toward healing."</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="timeline" id="timeline">
+            <!-- Card 1: Trigger -->
+            <div class="reflection-card active" id="card-1">
+                <div class="card-marker">🔁</div>
+                <h3 class="card-title">1. Trigger Event or Thought</h3>
+                <p class="card-subtitle">🧠 What started it all?</p>
+                
+                <ul class="prompt-list">
+                    <li>Can you recall the moment you started feeling anxious?</li>
+                    <li>What were you thinking about just before the feeling began?</li>
+                    <li>Was there a situation, person, or thought that triggered you?</li>
+                </ul>
+                
+                <textarea id="trigger-input" rows="4" placeholder="Write about what triggered your anxiety..."></textarea>
+                
+                <div>
+                    <p>Common triggers:</p>
+                    <div class="coping-icons trigger-icons">
+                        <div class="coping-icon" data-value="deadlines">
+                            ⏰<br>Deadlines
+                        </div>
+                        <div class="coping-icon" data-value="conflict">
+                            💥<br>Conflict
+                        </div>
+                        <div class="coping-icon" data-value="social">
+                            👥<br>Social
+                        </div>
+                        <div class="coping-icon" data-value="health">
+                            🩺<br>Health
+                        </div>
+                        <div class="coping-icon" data-value="work">
+                            💼<br>Work
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn-prev" disabled>← Previous</button>
+                    <button class="btn-next">Next →</button>
+                </div>
+            </div>
+
+            <!-- Card 2: Physical Sensations -->
+            <div class="reflection-card" id="card-2">
+                <div class="card-marker">💥</div>
+                <h3 class="card-title">2. Physical Sensations Arise</h3>
+                <p class="card-subtitle">💓 How does anxiety show up in your body?</p>
+                
+                <ul class="prompt-list">
+                    <li>What physical symptoms did you notice? (Tension, racing heart, nausea?)</li>
+                    <li>Rate your physical discomfort from 1 to 10</li>
+                    <li>Did your breathing change?</li>
+                </ul>
+                
+                <!-- <div class="body-map">
+                    <img src="/api/placeholder/200/320" alt="Body outline">
+                    <div class="body-spots" id="bodyMap"></div>
+                </div> -->
+                
+                <p>Rate your physical discomfort:</p>
+                <input type="range" min="1" max="10" value="5" class="intensity-slider" id="physical-intensity">
+                <div class="emoji-scale">
+                    <span class="emoji" data-value="1">😌</span>
+                    <span class="emoji" data-value="2">🙂</span>
+                    <span class="emoji" data-value="3">😐</span>
+                    <span class="emoji" data-value="4">😟</span>
+                    <span class="emoji" data-value="5">😣</span>
+                </div>
+                
+                <textarea id="physical-input" rows="3" placeholder="Describe any other physical sensations..."></textarea>
+                
+                <div class="nav-buttons">
+                    <button class="btn-prev">← Previous</button>
+                    <button class="btn-next">Next →</button>
+                </div>
+            </div>
+
+            <!-- Card 3: Anxious Thoughts -->
+            <div class="reflection-card" id="card-3">
+                <div class="card-marker">🌀</div>
+                <h3 class="card-title">3. Anxious Thoughts Intensify</h3>
+                <p class="card-subtitle">🌀 What was your mind telling you?</p>
+                
+                <ul class="prompt-list">
+                    <li>What thoughts kept repeating in your mind?</li>
+                    <li>Did you imagine worst-case scenarios?</li>
+                    <li>Did you have thoughts like "I can't handle this" or "Something bad will happen"?</li>
+                </ul>
+                
+                <textarea id="thoughts-input" rows="4" placeholder="What was the loudest thought in your mind?"></textarea>
+                
+                <div class="coping-icons thought-types">
+                    <div class="coping-icon" data-value="catastrophizing">
+                        🔥<br>Catastrophizing
+                    </div>
+                    <div class="coping-icon" data-value="black-white">
+                        ⚫⚪<br>Black & White
+                    </div>
+                    <div class="coping-icon" data-value="mind-reading">
+                        🔮<br>Mind Reading
+                    </div>
+                    <div class="coping-icon" data-value="what-if">
+                        ❓<br>What If's
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn-prev">← Previous</button>
+                    <button class="btn-next">Next →</button>
+                </div>
+            </div>
+
+            <!-- Card 4: Avoidance -->
+            <div class="reflection-card" id="card-4">
+                <div class="card-marker">🚪</div>
+                <h3 class="card-title">4. Avoidance Behaviors</h3>
+                <p class="card-subtitle">🕳️ What did you do next to avoid the feeling?</p>
+                
+                <ul class="prompt-list">
+                    <li>Did you cancel or avoid doing something?</li>
+                    <li>Did you distract yourself (scrolling, isolating, bingeing)?</li>
+                    <li>Did you make excuses to escape the situation?</li>
+                </ul>
+                
+                <textarea id="avoidance-input" rows="3" placeholder="How did you try to avoid or escape the anxiety?"></textarea>
+                
+                <p>Common coping strategies:</p>
+                <div class="coping-icons avoidance-types">
+                    <div class="coping-icon" data-value="scrolling">
+                        📱<br>Scrolling
+                    </div>
+                    <div class="coping-icon" data-value="eating">
+                        🍕<br>Eating
+                    </div>
+                    <div class="coping-icon" data-value="sleeping">
+                        😴<br>Sleeping
+                    </div>
+                    <div class="coping-icon" data-value="isolation">
+                        🚪<br>Isolating
+                    </div>
+                    <div class="coping-icon" data-value="procrastinate">
+                        ⏱️<br>Procrastinating
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn-prev">← Previous</button>
+                    <button class="btn-next">Next →</button>
+                </div>
+            </div>
+
+            <!-- Card 5: Temporary Relief -->
+            <div class="reflection-card" id="card-5">
+                <div class="card-marker">🌙</div>
+                <h3 class="card-title">5. Temporary Relief</h3>
+                <p class="card-subtitle">🌙 Did it feel better after avoiding?</p>
+                
+                <ul class="prompt-list">
+                    <li>Did you feel calmer for a little while?</li>
+                    <li>Did the feeling come back later?</li>
+                    <li>Was the relief short-lived?</li>
+                </ul>
+                
+                <p>How long did the relief last?</p>
+                <input type="range" min="1" max="5" value="3" class="intensity-slider" id="relief-duration">
+                <div class="emoji-scale duration-scale">
+                    <span>Minutes</span>
+                    <span>Hours</span>
+                    <span>Day</span>
+                    <span>Days</span>
+                    <span>Week+</span>
+                </div>
+                
+                <textarea id="relief-input" rows="3" placeholder="Describe how you felt after your coping response..."></textarea>
+                
+                <div class="nav-buttons">
+                    <button class="btn-prev">← Previous</button>
+                    <button class="btn-next">Next →</button>
+                </div>
+            </div>
+
+            <!-- Card 6: Cycle Reinforcement -->
+            <div class="reflection-card" id="card-6">
+                <div class="card-marker">🔄</div>
+                <h3 class="card-title">6. Cycle Reinforcement</h3>
+                <p class="card-subtitle">🔁 Is this a pattern you've seen before?</p>
+                
+                <ul class="prompt-list">
+                    <li>Do you notice this happening often?</li>
+                    <li>What part of this cycle feels most familiar to you?</li>
+                    <li>What would you like to change next time?</li>
+                </ul>
+                
+                <textarea id="pattern-input" rows="3" placeholder="Reflect on the pattern you've noticed..."></textarea>
+                
+                <p>Which part do you get stuck in most?</p>
+                <div class="coping-icons cycle-parts">
+                    <div class="coping-icon" data-value="trigger">
+                        🔁<br>Trigger
+                    </div>
+                    <div class="coping-icon" data-value="physical">
+                        💥<br>Physical
+                    </div>
+                    <div class="coping-icon" data-value="thoughts">
+                        🌀<br>Thoughts
+                    </div>
+                    <div class="coping-icon" data-value="avoidance">
+                        🚪<br>Avoidance
+                    </div>
+                    <div class="coping-icon" data-value="relief">
+                        🌙<br>Relief
+                    </div>
+                </div>
+                
+                <textarea id="future-input" rows="3" placeholder="What would you like to try differently next time?"></textarea>
+                
+                <div class="nav-buttons">
+                    <button class="btn-prev">← Previous</button>
+                    <button class="btn-next" id="complete-btn">Complete Reflection</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Modal -->
+        <div class="summary-modal" id="summaryModal">
+            <div class="summary-content">
+                <h2 class="summary-title">Your Anxiety Cycle Reflection</h2>
+                <div class="cycle-chart">
+                    <img src="/api/placeholder/400/250" alt="Anxiety cycle visualization">
+                </div>
+                <div id="summary-text">
+                    <!-- Summary will be inserted here by JavaScript -->
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button id="close-summary">Close Summary</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>You're doing great. Keep journaling, reflecting, and growing. 💜</p>
+            <p>© 2025 Clarity Space • Built with care</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Variables
+    const cards = document.querySelectorAll('.reflection-card');
+    const progressBar = document.getElementById('progressBar');
+    const nextButtons = document.querySelectorAll('.btn-next');
+    const prevButtons = document.querySelectorAll('.btn-prev');
+    const completeButton = document.getElementById('complete-btn');
+    const summaryModal = document.getElementById('summaryModal');
+    const closeModalButton = document.getElementById('close-summary');
+    const bodyMap = document.getElementById('bodyMap');
+    const copingIcons = document.querySelectorAll('.coping-icon');
+    const emojis = document.querySelectorAll('.emoji');
+    const animatedBg = document.getElementById('animatedBg');
+    let currentCardIndex = 0;
+    let userResponses = {
+        trigger: '',
+        triggerTypes: [],
+        physical: '',
+        physicalSpots: [],
+        physicalIntensity: 5,
+        thoughts: '',
+        thoughtTypes: [],
+        avoidance: '',
+        avoidanceTypes: [],
+        relief: '',
+        reliefDuration: 3,
+        pattern: '',
+        stuckPart: '',
+        future: ''
+    };
+
+    // Create animated background bubbles
+    function createBubbles() {
+    animatedBg.innerHTML = '';
+    const bubbleCount = 12;
+    
+    for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('floating-bubble');
+        
+        // Random size between 50px and 200px
+        const size = Math.floor(Math.random() * 150) + 50;
+        bubble.style.width = size + 'px';
+        bubble.style.height = size + 'px';
+        
+        // Random position
+        bubble.style.left = Math.random() * 100 + '%';
+        bubble.style.top = Math.random() * 100 + '%';
+        
+        // Random animation delay and duration
+        bubble.style.animationDelay = (Math.random() * 5) + 's';
+        bubble.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        
+        // Random background color
+        const opacity = (Math.random() * 0.1) + 0.05;
+        const hue = Math.floor(Math.random() * 60) + 240; // Purple/blue range
+        bubble.style.background = `hsla(${hue}, 70%, 60%, ${opacity})`;
+        
+        // Random shape (more square-like)
+        const borderRadius = Math.floor(Math.random() * 15) + 5 + '%';
+        bubble.style.borderRadius = borderRadius;
+        
+        animatedBg.appendChild(bubble);
+    }
+}
+    // Initialize the application
+    function init() {
+        createBubbles();
+        updateProgressBar();
+        hideAllCardsExcept(currentCardIndex);
+        setupEventListeners();
+    }
+    
+    // Setup event listeners
+    function setupEventListeners() {
+        // Next button listeners
+        nextButtons.forEach(button => {
+            button.addEventListener('click', goToNextCard);
+        });
+        
+        // Previous button listeners
+        prevButtons.forEach(button => {
+            button.addEventListener('click', goToPrevCard);
+        });
+        
+        // Complete button listener
+        completeButton.addEventListener('click', showSummary);
+        
+        // Close modal button listener
+        closeModalButton.addEventListener('click', function() {
+            summaryModal.classList.remove('active');
+        });
+        
+        // Body map click listener
+        document.querySelector('.body-map').addEventListener('click', function(e) {
+            if (e.target.classList.contains('body-map') || e.target.tagName === 'IMG') {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                addBodySpot(x, y);
+            }
+        });
+        
+        // Coping icons click listener
+        copingIcons.forEach(icon => {
+            icon.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                updateUserResponses();
+            });
+        });
+        
+        // Emoji scale listener
+        emojis.forEach(emoji => {
+            emoji.addEventListener('click', function() {
+                // Remove selected class from all emojis
+                emojis.forEach(e => e.classList.remove('selected'));
+                
+                // Add selected class to clicked emoji
+                this.classList.add('selected');
+                
+                // Update user responses
+                document.getElementById('physical-intensity').value = this.getAttribute('data-value');
+                updateUserResponses();
+            });
+        });
+        
+        // Intensity slider listener
+        document.getElementById('physical-intensity').addEventListener('input', function() {
+            // Update the emoji selection based on slider value
+            emojis.forEach(emoji => emoji.classList.remove('selected'));
+            const selectedEmoji = document.querySelector(`.emoji[data-value="${this.value}"]`);
+            if (selectedEmoji) selectedEmoji.classList.add('selected');
+            
+            updateUserResponses();
+        });
+        
+        // Relief duration slider listener
+        document.getElementById('relief-duration').addEventListener('input', updateUserResponses);
+        
+        // Text inputs listeners
+        document.getElementById('trigger-input').addEventListener('input', updateUserResponses);
+        document.getElementById('physical-input').addEventListener('input', updateUserResponses);
+        document.getElementById('thoughts-input').addEventListener('input', updateUserResponses);
+        document.getElementById('avoidance-input').addEventListener('input', updateUserResponses);
+        document.getElementById('relief-input').addEventListener('input', updateUserResponses);
+        document.getElementById('pattern-input').addEventListener('input', updateUserResponses);
+        document.getElementById('future-input').addEventListener('input', updateUserResponses);
+    }
+    
+    // Go to next card
+    function goToNextCard() {
+        if (currentCardIndex < cards.length - 1) {
+            currentCardIndex++;
+            hideAllCardsExcept(currentCardIndex);
+            updateProgressBar();
+        }
+    }
+    
+    // Go to previous card
+    function goToPrevCard() {
+        if (currentCardIndex > 0) {
+            currentCardIndex--;
+            hideAllCardsExcept(currentCardIndex);
+            updateProgressBar();
+        }
+    }
+    
+    // Hide all cards except the active one
+    function hideAllCardsExcept(index) {
+        cards.forEach((card, i) => {
+            if (i === index) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+    }
+    
+    // Update progress bar
+    function updateProgressBar() {
+        const progress = ((currentCardIndex + 1) / cards.length) * 100;
+        progressBar.style.width = progress + '%';
+    }
+    
+    // Add body spot
+    function addBodySpot(x, y) {
+        const spot = document.createElement('div');
+        spot.classList.add('body-spot');
+        spot.style.left = x + 'px';
+        spot.style.top = y + 'px';
+        bodyMap.appendChild(spot);
+        
+        // Animation
+        setTimeout(() => {
+            spot.style.transform = 'scale(1)';
+        }, 10);
+        
+        // Add to user responses
+        userResponses.physicalSpots.push({x, y});
+        
+        // Add click listener to remove
+        spot.addEventListener('click', function() {
+            this.style.transform = 'scale(0)';
+            setTimeout(() => {
+                this.remove();
+                // Remove from user responses
+                const index = userResponses.physicalSpots.findIndex(s => s.x === x && s.y === y);
+                if (index !== -1) {
+                    userResponses.physicalSpots.splice(index, 1);
+                }
+            }, 300);
+            
+            // Stop propagation to prevent creating a new spot
+            event.stopPropagation();
+        });
+    }
+    
+    // Update user responses
+    function updateUserResponses() {
+        // Trigger
+        userResponses.trigger = document.getElementById('trigger-input').value;
+        userResponses.triggerTypes = [];
+        document.querySelectorAll('.trigger-icons .coping-icon.selected').forEach(icon => {
+            userResponses.triggerTypes.push(icon.getAttribute('data-value'));
+        });
+        
+        // Physical
+        userResponses.physical = document.getElementById('physical-input').value;
+        userResponses.physicalIntensity = document.getElementById('physical-intensity').value;
+        
+        // Thoughts
+        userResponses.thoughts = document.getElementById('thoughts-input').value;
+        userResponses.thoughtTypes = [];
+        document.querySelectorAll('.thought-types .coping-icon.selected').forEach(icon => {
+            userResponses.thoughtTypes.push(icon.getAttribute('data-value'));
+        });
+        
+        // Avoidance
+        userResponses.avoidance = document.getElementById('avoidance-input').value;
+        userResponses.avoidanceTypes = [];
+        document.querySelectorAll('.avoidance-types .coping-icon.selected').forEach(icon => {
+            userResponses.avoidanceTypes.push(icon.getAttribute('data-value'));
+        });
+        
+        // Relief
+        userResponses.relief = document.getElementById('relief-input').value;
+        userResponses.reliefDuration = document.getElementById('relief-duration').value;
+        
+        // Pattern
+        userResponses.pattern = document.getElementById('pattern-input').value;
+        userResponses.stuckPart = '';
+        document.querySelectorAll('.cycle-parts .coping-icon.selected').forEach(icon => {
+            userResponses.stuckPart = icon.getAttribute('data-value');
+        });
+        
+        // Future
+        userResponses.future = document.getElementById('future-input').value;
+    }
+    
+    // Show summary
+    function showSummary() {
+        updateUserResponses();
+        
+        // Generate summary text
+        let summaryText = `
+            <p><strong>Your Trigger:</strong> ${userResponses.trigger || 'Not specified'}</p>
+            <p><strong>Common Triggers:</strong> ${userResponses.triggerTypes.length ? userResponses.triggerTypes.join(', ') : 'None selected'}</p>
+            <hr>
+            <p><strong>Physical Sensations:</strong> ${userResponses.physical || 'Not specified'}</p>
+            <p><strong>Physical Intensity:</strong> ${userResponses.physicalIntensity}/10</p>
+            <hr>
+            <p><strong>Your Thoughts:</strong> ${userResponses.thoughts || 'Not specified'}</p>
+            <p><strong>Thought Patterns:</strong> ${userResponses.thoughtTypes.length ? userResponses.thoughtTypes.join(', ') : 'None selected'}</p>
+            <hr>
+            <p><strong>Avoidance Behaviors:</strong> ${userResponses.avoidance || 'Not specified'}</p>
+            <p><strong>Coping Strategies:</strong> ${userResponses.avoidanceTypes.length ? userResponses.avoidanceTypes.join(', ') : 'None selected'}</p>
+            <hr>
+            <p><strong>Relief Experience:</strong> ${userResponses.relief || 'Not specified'}</p>
+            <p><strong>Relief Duration:</strong> ${getDurationText(userResponses.reliefDuration)}</p>
+            <hr>
+            <p><strong>Pattern Observed:</strong> ${userResponses.pattern || 'Not specified'}</p>
+            <p><strong>Most Challenging Part:</strong> ${userResponses.stuckPart || 'Not specified'}</p>
+            <p><strong>Future Plan:</strong> ${userResponses.future || 'Not specified'}</p>
+            <hr>
+            <p class="intro-quote">Remember, awareness is the first step toward healing. You're doing great! 💜</p>
+        `;
+        
+        document.getElementById('summary-text').innerHTML = summaryText;
+        summaryModal.classList.add('active');
+    }
+    
+    // Helper function to get duration text
+    function getDurationText(duration) {
+        const durations = ['Minutes', 'Hours', 'Day', 'Days', 'Week+'];
+        return durations[duration - 1] || 'Not specified';
+    }
+    
+    // Initialize the app
+    init();
+});

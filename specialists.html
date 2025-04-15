@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specialists</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Your existing CSS remains unchanged */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: D6E0FF;
+      margin: 0;
+      padding: 0;
+      
+    }
+    .container {
+      width: 90%;
+      margin: 50px;
+      overflow: hidden;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        margin: 10px;
+      }
+
+    .specialty-section {
+      margin-bottom: 60px;
+    }
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      colour: theme;
+    }
+    .card {
+      background: linear-gradient(135deg, #ffffffcc, #f4f9ffe6);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 360px;
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      color: #333;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    
+    
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      margin: 10px 0;
+      color: #007bff;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 5px 0;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      
+      color: theme;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  
+    
+  </style>
+</head>
+<body>
+<nav>
+  <h1>Women's Health</h1>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="modules.html">Modules</a></li>
+    <li><a class="active" href="specialists.html">Specialists</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a id="nav-signup" href="signup.html">Sign Up</a></li>
+    <li><a id="nav-logout" href="#">Logout</a></li>
+  </ul>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <span id="welcome-message"></span>
+    <button id="toggle-mode">🌓</button>
+    <label for="theme-select">🎨 Theme:</label>
+    <select id="theme-select">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="blue">Blue</option>
+      <option value="teal">Teal</option>
+      <option value="violet">Violet</option>
+    </select>
+  </div>
+</nav>
+
+  <div class="container">
+    <h1>Specialists</h1>
+
+
+
+    <!-- Gynecology Section -->
+    <section class="specialty-section">
+      <h2>Gynecology</h2>
+      <div class="cards">
+        <!-- Doctor 1 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Sunita Gupta">
+          <h3>Dr. Sunita Gupta</h3>
+          <p><strong>Experience:</strong> 25 years</p>
+          <p><strong>Location:</strong> New Delhi</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.sunita@example.com">dr.sunita@example.com</a></p>
+        </div>
+        <!-- Doctor 2 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Anita Sharma">
+          <h3>Dr. Anita Sharma</h3>
+          <p><strong>Experience:</strong> 20 years</p>
+          <p><strong>Location:</strong> Mumbai</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.anita@example.com">dr.anita@example.com</a></p>
+        </div>
+        <!-- Doctor 3 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Meena Iyer">
+          <h3>Dr. Meena Iyer</h3>
+          <p><strong>Experience:</strong> 22 years</p>
+          <p><strong>Location:</strong> Bangalore</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.meena@example.com">dr.meena@example.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dermatology Section -->
+    <section class="specialty-section">
+      <h2>Dermatology</h2>
+      <div class="cards">
+        <!-- Doctor 1 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Rashmi Shetty">
+          <h3>Dr. Rashmi Shetty</h3>
+          <p><strong>Experience:</strong> 20+ years</p>
+          <p><strong>Location:</strong> Mumbai</p>
+          <p><strong>Contact:</strong> <a href="mailto:contact@drrashmishetty.com">contact@drrashmishetty.com</a></p>
+        </div>
+        <!-- Doctor 2 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Snehal Patel">
+          <h3>Dr. Snehal Patel</h3>
+          <p><strong>Experience:</strong> 15 years</p>
+          <p><strong>Location:</strong> Ahmedabad</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.snehal@example.com">dr.snehal@example.com</a></p>
+        </div>
+        <!-- Doctor 3 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Amit Verma">
+          <h3>Dr. Amit Verma</h3>
+          <p><strong>Experience:</strong> 18 years</p>
+          <p><strong>Location:</strong> Pune</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.amit@example.com">dr.amit@example.com</a></p>
+        </div>
+      </div>
+    </section>
+
+        <!-- Cardiology Section -->
+        <section class="specialty-section">
+        <h2>Cardiology</h2>
+        <div class="cards">
+          <!-- Doctor 1 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Rajesh Kumar">
+            <h3>Dr. Rajesh Kumar</h3>
+            <p><strong>Experience:</strong> 20 years</p>
+            <p><strong>Location:</strong> New Delhi</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.rajesh@example.com">dr.rajesh@example.com</a></p>
+          </div>
+          <!-- Doctor 2 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Priya Sharma">
+            <h3>Dr. Priya Sharma</h3>
+            <p><strong>Experience:</strong> 18 years</p>
+            <p><strong>Location:</strong> Mumbai</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.priya@example.com">dr.priya@example.com</a></p>
+          </div>
+          <!-- Doctor 3 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Anil Mehta">
+            <h3>Dr. Anil Mehta</h3>
+            <p><strong>Experience:</strong> 22 years</p>
+            <p><strong>Location:</strong> Bangalore</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.anil@example.com">dr.anil@example.com</a></p>
+          </div>
+        </div>
+      </section>
+
+
+    <!-- Neurology Section -->
+    <section class="specialty-section">
+      <h2>Neurology</h2>
+      <div class="cards">
+        <!-- Doctor 1 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Suresh Iyer">
+          <h3>Dr. Suresh Iyer</h3>
+          <p><strong>Experience:</strong> 15 years</p>
+          <p><strong>Location:</strong> Chennai</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.suresh@example.com">dr.suresh@example.com</a></p>
+        </div>
+        <!-- Doctor 2 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Lakshmi Nair">
+          <h3>Dr. Lakshmi Nair</h3>
+          <p><strong>Experience:</strong> 12 years</p>
+          <p><strong>Location:</strong> Hyderabad</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.lakshmi@example.com">dr.lakshmi@example.com</a></p>
+        </div>
+        <!-- Doctor 3 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Ramesh Reddy">
+          <h3>Dr. Ramesh Reddy</h3>
+          <p><strong>Experience:</strong> 17 years</p>
+          <p><strong>Location:</strong> Pune</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.ramesh@example.com">dr.ramesh@example.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Orthopedics Section -->
+    <section class="specialty-section">
+      <h2>Orthopedics</h2>
+      <div class="cards">
+        <!-- Doctor 1 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Amit Gupta">
+          <h3>Dr. Amit Gupta</h3>
+          <p><strong>Experience:</strong> 19 years</p>
+          <p><strong>Location:</strong> Kolkata</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.amit@example.com">dr.amit@example.com</a></p>
+        </div>
+        <!-- Doctor 2 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Sneha Verma">
+          <h3>Dr. Sneha Verma</h3>
+          <p><strong>Experience:</strong> 19 years</p>
+          <p><strong>Location:</strong> Kolkata</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.amit@example.com">dr.amit@example.com</a></p>
+        </div>
+    </section>
+ 
+    
+    <!-- Oncology Section -->
+    <section class="specialty-section">
+      <h2>Oncology</h2>
+      <div class="cards">
+        <!-- Doctor 1 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Mukesh Patekar">
+          <h3>Dr. Mukesh Patekar</h3>
+          <p><strong>Experience:</strong> 15+ years</p>
+          <p><strong>Location:</strong> Gurgaon</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.mukesh@example.com">dr.mukesh@example.com</a></p>
+        </div>
+        <!-- Doctor 2 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Ashok Vaid">
+          <h3>Dr. Ashok Vaid</h3>
+          <p><strong>Experience:</strong> 25 years</p>
+          <p><strong>Location:</strong> New Delhi</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.ashok@example.com">dr.ashok@example.com</a></p>
+        </div>
+        <!-- Doctor 3 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Sushil Madhaniya">
+          <h3>Dr. Sushil Madhaniya</h3>
+          <p><strong>Experience:</strong> 22 years</p>
+          <p><strong>Location:</strong> Nagpur</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.sushil@example.com">dr.sushil@example.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pediatrics Section -->
+    <section class="specialty-section">
+      <h2>Pediatrics</h2>
+      <div class="cards">
+        <!-- Doctor 1 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Dhananjay Malankar">
+          <h3>Dr. Dhananjay Malankar</h3>
+          <p><strong>Experience:</strong> 20+ years</p>
+          <p><strong>Location:</strong> Mumbai</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.dhananjay@example.com">dr.dhananjay@example.com</a></p>
+        </div>
+        <!-- Doctor 2 -->
+        <div class="card">
+          <img src="images/doctor.png" alt="Dr. Arbinder Singal">
+          <h3>Dr. Arbinder Singal</h3>
+          <p><strong>Experience:</strong> 18 years</p>
+          <p><strong>Location:</strong> Navi Mumbai</p>
+          <p><strong>Contact:</strong> <a href="mailto:dr.arbinder@example.com">dr.arbinder@example.com</a></p>
+        </div>
+    </section>
+        <!-- Endocrinology Section -->
+        <section class="specialty-section">
+        <h2>Endocrinology</h2>
+        <div class="cards">
+          <!-- Doctor 1 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Dheeraj Kapoor">
+            <h3>Dr. Dheeraj Kapoor</h3>
+            <p><strong>Experience:</strong> Over 20 years</p>
+            <p><strong>Location:</strong> Gurgaon</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.dheeraj@example.com">dr.dheeraj@example.com</a></p>
+          </div>
+          <!-- Doctor 2 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Abhay Bhatt">
+            <h3>Dr. Abhay Bhatt</h3>
+            <p><strong>Experience:</strong> Over 25 years</p>
+            <p><strong>Location:</strong> Mumbai</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.abhay@example.com">dr.abhay@example.com</a></p>
+          </div>
+          <!-- Doctor 3 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Anuradha Khanna">
+            <h3>Dr. Anuradha Khanna</h3>
+            <p><strong>Experience:</strong> 18 years</p>
+            <p><strong>Location:</strong> New Delhi</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.anuradha@example.com">dr.anuradha@example.com</a></p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Psychiatry Section -->
+      <section class="specialty-section">
+        <h2>Psychiatry</h2>
+        <div class="cards">
+          <!-- Doctor 1 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Gorav Gupta">
+            <h3>Dr. Gorav Gupta</h3>
+            <p><strong>Experience:</strong> Over 20 years</p>
+            <p><strong>Location:</strong> New Delhi</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.gorav@example.com">dr.gorav@example.com</a></p>
+          </div>
+          <!-- Doctor 2 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Ashish Soy">
+            <h3>Dr. Ashish Soy</h3>
+            <p><strong>Experience:</strong> 15 years</p>
+            <p><strong>Location:</strong> Ranchi</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.ashish@example.com">dr.ashish@example.com</a></p>
+          </div>
+          <!-- Doctor 3 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Kranthi Kiran">
+            <h3>Dr. Kranthi Kiran</h3>
+            <p><strong>Experience:</strong> 18 years</p>
+            <p><strong>Location:</strong> Hyderabad</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.kranthi@example.com">dr.kranthi@example.com</a></p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- General Medicine Section -->
+      <section class="specialty-section">
+        <h2>General Medicine</h2>
+        <div class="cards">
+          <!-- Doctor 1 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Amitabha Saha">
+            <h3>Dr. Amitabha Saha</h3>
+            <p><strong>Experience:</strong> Over 20 years</p>
+            <p><strong>Location:</strong> Kolkata</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.amitabha@example.com">dr.amitabha@example.com</a></p>
+          </div>
+          <!-- Doctor 2 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Praveenraj">
+            <h3>Dr. Praveenraj</h3>
+            <p><strong>Experience:</strong> 15 years</p>
+            <p><strong>Location:</strong> Coimbatore</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.praveenraj@example.com">dr.praveenraj@example.com</a></p>
+          </div>
+          <!-- Doctor 3 -->
+          <div class="card">
+            <img src="images/doctor.png" alt="Dr. Sruthi Elsa Saji">
+            <h3>Dr. Sruthi Elsa Saji</h3>
+            <p><strong>Experience:</strong> 10 years</p>
+            <p><strong>Location:</strong> Deira</p>
+            <p><strong>Contact:</strong> <a href="mailto:dr.sruthi@example.com">dr.sruthi@example.com</a></p>
+          </div>
+        </div>
+      </section>
+      </div>
+
+  
+    <script src="script.js">
+
+ 
+</script>
+  </body>
+  </html>
+  
+  
+ 

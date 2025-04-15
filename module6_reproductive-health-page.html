@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women's Reproductive Health</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(135deg, #b2fefa, #0ed2f7);
+      color: #333;
+      background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
+      text-align: center;
+    }
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: #0b7285;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      text-decoration: none;
+      color: #0b7285;
+      font-weight: bold;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #0b7285;
+      left: 0;
+      bottom: -4px;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+    section {
+      padding: 3rem 2rem;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      text-align: left;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 800px;
+    }
+    section.visible {
+      opacity: 1;
+    }
+    .tip-button {
+      background-color: #00c2cb;
+      border: none;
+      color: white;
+      padding: 0.9rem 1.2rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    a.tip-button {
+      background-color:rgb(131, 219, 193);  /* Example color, change as needed */
+      text-decoration: none;
+      padding: 0.9rem 1.2rem;
+      border-radius: 1rem;
+      color: white;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 200;
+      max-width: 80%;
+      width: 400px;
+    }
+    .popup.show {
+      display: block;
+    }
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .resource-box {
+      background: #ffffffcc;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-left: 5px solid #00c2cb;
+      border-radius: 0.5rem;
+    }
+    .fun-fact {
+      background: #f3f9fa;
+      padding: 1rem;
+      border-left: 4px solid #007f8c;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    .quiz-section {
+      padding: 3rem 2rem;
+    }
+
+    .quiz-section h3 {
+      margin-bottom: 1.5rem;
+      color: #0b7285;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .question {
+      margin-bottom: 1.5rem;
+    }
+
+    .question h4 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .quiz-section label {
+      display: block;
+      background-color: #f3f9fa;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .quiz-section label:hover {
+      background-color: #00c2cb;
+      color: white;
+    }
+
+    .quiz-section input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .submit-button {
+      background-color: #00c2cb;
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      color: white;
+      border: none;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 2rem;
+    }
+
+    .submit-button:hover {
+      background-color: #0289a4;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ff0000;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .quiz-section h3 {
+        font-size: 1.5rem;
+      }
+
+      .question h4 {
+        font-size: 1.2rem;
+      }
+
+      .submit-button {
+        padding: 2rem 4rem;      /* Large padding */
+        font-size: 3rem;         /* Large font size */
+        background-color: #4CAF50; /* Example background color */
+        color: white;             /* Text color */
+        border: none;             /* No border */
+        border-radius: 12px;      /* Rounded corners */
+        cursor: pointer;         /* Pointer cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    }
+    
+    .submit-button:hover {
+        background-color: #45a049; /* Darker shade on hover */
+    }
+    
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+    .faq-item strong {
+      display: block;
+      color: #03506f;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .button-container {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      
+      .faq-container {
+        background-color: #ffffffcc;  /* Sets the background color */
+        padding: 2rem;                /* Adds space inside the box */
+        margin-top: 2rem;             /* Adds space outside the box */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a shadow for the box */
+        border-radius: 8px;           /* Rounds the corners of the box */
+        max-width: 800px;             /* Sets the maximum width of the box */
+        width: 90%;                   /* Sets the width to 90% of the page width */
+        margin-left: auto;            /* Centers the box horizontally */
+        margin-right: auto;           /* Centers the box horizontally */
+        text-align: left;             /* Aligns the content to the left inside the box */
+      }
+      
+      .faq-item {
+        margin-bottom: 1rem;          /* Adds space between each FAQ item */
+      }
+      
+      .faq-item strong {
+        display: block;               /* Makes the question appear as a block (starts on a new line) */
+        color: #03506f;               /* Sets the color of the question */
+      }
+      
+      
+  </style>
+</head>
+<body>
+  
+  <header>
+    <h1>Women's Reproductive Health & Hygiene</h1>
+  </header>
+
+  <nav>
+    <a href="#menstrual">Menstrual Hygiene</a>
+    <a href="#vaginal">Vaginal Care</a>
+    <a href="#anatomy">Reproductive Anatomy</a>
+    <a href="#issues">Common Issues</a>
+    <a href="#quiz">Quiz</a> 
+    <a href="#faq">FAQ</a> 
+  
+  </nav>
+
+  <section id="menstrual">
+  <h2>Menstrual Hygiene</h2>
+  <ul>
+    <li>Change sanitary products every 4-6 hours</li>
+    <li>Use clean, breathable underwear</li>
+  </ul>
+  <div class="button-container">
+    <button class="tip-button" onclick="showPopup('popup-menstrual')">See Tips</button>
+    <a href="https://www.unicef.org/media/91346/file/unicef-guide-menstrual-hygiene-materials-2019.pdf" class="tip-button">Also Read</a>
+    <a href="https://www.unicef.org/maldives/media/1271/file/Growing%20Up%20Well%20-%20For%20Girls.pdf" class="tip-button">Also Read</a>
+  </div>
+  <div class="popup" id="popup-menstrual">
+    <span class="close-btn" onclick="hidePopup('popup-menstrual')">×</span>
+    <p><strong>Tip 1:</strong> Always carry an extra pad or tampon.</p>
+    <p><strong>Tip 2:</strong> Track your cycle to stay prepared.</p>
+  </div>
+  <div class="fun-fact">Fun Fact: On average, a woman menstruates for about 7 years in her lifetime!</div>
+</section>
+
+<section id="vaginal">
+  <h2>Vaginal Care</h2>
+  <ul>
+    <li>Avoid scented products and douching</li>
+    <li>Wear cotton underwear and loose clothes</li>
+  </ul>
+  <div class="button-container">
+    <button class="tip-button" onclick="showPopup('popup-vaginal')">See Tips</button>
+    <a href="https://vulvovaginaldisorders.org/handouts/GeneralVulvarCare.pdf" class="tip-button">Also Read</a>
+    <a href="https://www.true.org.au/ArticleDocuments/208/TRUE%20Factsheets%202022%20Vulval%20Health.pdf.aspx?embed=Y" class="tip-button">Also Read</a>
+  </div>
+  <div class="popup" id="popup-vaginal">
+    <span class="close-btn" onclick="hidePopup('popup-vaginal')">×</span>
+    <p><strong>Tip 1:</strong> Let your skin breathe. Avoid staying in wet clothes.</p>
+    <p><strong>Tip 2:</strong> Use mild soaps and wash only the outer area.</p>
+  </div>
+  <div class="fun-fact">Fun Fact: The vagina has a self-cleaning mechanism thanks to its natural pH!</div>
+</section>
+
+<section id="anatomy">
+  <h2>Reproductive Anatomy</h2>
+  <p>The female reproductive system includes the ovaries, fallopian tubes, uterus, and vagina.</p>
+  <div class="button-container">
+    <button class="tip-button" onclick="showPopup('popup-anatomy')">See Tips</button>
+    <a href="https://conursing.uobaghdad.edu.iq/wp-content/uploads/sites/20/2019/09/Anatomy-Physiology-of-the-Male-Female-Reproductive-System.pdf" class="tip-button">Also Read</a>
+    <a href="https://docs.neu.edu.tr/staff/ganna.pola/Anatomy%20of%20Reproductive%20System_1.pdf" class="tip-button">Also Read</a>
+  </div>
+  <div class="popup" id="popup-anatomy">
+    <span class="close-btn" onclick="hidePopup('popup-anatomy')">×</span>
+    <p><strong>Tip 1:</strong> Learning about your anatomy empowers you.</p>
+    <p><strong>Tip 2:</strong> Use diagrams or anatomy apps to familiarize yourself.</p>
+  </div>
+  <div class="fun-fact">Fun Fact: The uterus is roughly the size of a pear but can expand over 500 times its size during pregnancy!</div>
+</section>
+
+<section id="issues">
+  <h2>Common Issues</h2>
+  <ul>
+    <li>PCOS</li>
+    <li>UTIs</li>
+    <li>Irregular Periods</li>
+  </ul>
+  <div class="button-container">
+    <button class="tip-button" onclick="showPopup('popup-issues')">See Tips</button>
+    <a href="https://iapindia.org/pdf/Ch-009-Menstrual-Irregularities.pdf" class="tip-button">Also Read</a>
+    <a href="https://assets.cureus.com/uploads/review_article/pdf/197833/20231221-29361-1xyuizp.pdf" class="tip-button">Also Read</a>
+  </div>
+  <div class="popup" id="popup-issues">
+    <span class="close-btn" onclick="hidePopup('popup-issues')">×</span>
+    <p><strong>Tip 1:</strong> Don’t ignore symptoms like unusual discharge or odor.</p>
+    <p><strong>Tip 2:</strong> Drink plenty of water to prevent infections.</p>
+  </div>
+  <div class="fun-fact">Fun Fact: Around 1 in 10 women worldwide is affected by PCOS.</div>
+</section>
+
+
+<section id="quiz" class="quiz-section">
+<h3>Quiz: Test Your Knowledge!</h3>
+
+<form id="quizForm">
+  <div class="question">
+    <h4>Q1: How often should you change your sanitary pad during periods?</h4>
+    <label><input type="radio" name="q1" value="A"> A. Every 12 hours</label>
+    <label><input type="radio" name="q1" value="B"> B. Every 4-6 hours</label>
+    <label><input type="radio" name="q1" value="C"> C. Once a day</label>
+  </div>
+
+  <div class="question">
+    <h4>Q2: Is it okay to exercise during your period?</h4>
+    <label><input type="radio" name="q2" value="A"> A. No, it’s not safe</label>
+    <label><input type="radio" name="q2" value="B"> B. Yes, light exercise is helpful</label>
+    <label><input type="radio" name="q2" value="C"> C. Only if you feel okay</label>
+  </div>
+
+  <div class="question">
+    <h4>Q3: What is a common symptom of PCOS?</h4>
+    <label><input type="radio" name="q3" value="A"> A. Irregular periods</label>
+    <label><input type="radio" name="q3" value="B"> B. Consistent weight loss</label>
+    <label><input type="radio" name="q3" value="C"> C. No symptoms at all</label>
+  </div>
+
+  <button type="button" onclick="checkAnswers()">Submit</button>
+</form>
+
+<div id="quizResult" class="result"></div>
+</section>
+
+  <section id="faq" class="faq-section">
+    
+    <div class="faq-container">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <strong>What is a normal menstrual cycle?</strong>
+      <p>A normal menstrual cycle ranges from 21 to 35 days, with bleeding lasting 3 to 7 days.</p>
+    </div>
+    <div class="faq-item">
+      <strong>How can I relieve menstrual cramps?</strong>
+      <p>Applying heat, drinking herbal teas, or taking over-the-counter pain medications can help relieve cramps.</p>
+    </div>
+  </div>
+  
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    function showPopup(id) {
+      // Close all popups
+      document.querySelectorAll('.popup').forEach(popup => {
+        popup.classList.remove('show');
+      });
+
+      // Open the clicked popup
+      document.getElementById(id).classList.add('show');
+    }
+    function hidePopup(id) {
+      document.getElementById(id).classList.remove('show');
+    }
+
+    function checkAnswers() {
+      let score = 0;
+      let totalQuestions = 3;
+      let feedback = "";
+
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      const q3 = document.querySelector('input[name="q3"]:checked');
+
+      // Check answers and provide feedback
+      if (q1 && q1.value === "B") score++;
+      else feedback += "Q1: The correct answer is B. Every 4-6 hours.\n";
+
+      if (q2 && q2.value === "B") score++;
+      else feedback += "Q2: The correct answer is B. Yes, light exercise is helpful.\n";
+
+      if (q3 && q3.value === "A") score++;
+      else feedback += "Q3: The correct answer is A. Irregular periods.\n";
+
+      // Display score and feedback
+      let resultText = `You scored ${score} out of ${totalQuestions}.\n\n`;
+      if (score === totalQuestions) {
+        resultText += "Great job! You know your reproductive health well!";
+      } else {
+        resultText += "Please review the feedback and try again.";
+      }
+
+      document.getElementById("quizResult").innerText = resultText + "\n" + feedback;
+    }
+  </script>
+</body>
+</html>

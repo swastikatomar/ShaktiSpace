@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Journaling Timeline</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+ 
+      color: #333;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #E0BBE4;
+    }
+
+    .wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .timeline {
+      position: relative;
+      width: 80%;
+      padding: 40px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background-color: #6aaec6;
+      transform: translateX(-50%);
+    }
+
+    .event {
+      position: relative;
+      width: 50%;
+      padding: 10px 20px;
+      margin-bottom: 60px;
+    }
+
+    .event:nth-child(odd) {
+      left: 0;
+    }
+
+    .event:nth-child(even) {
+      left: 50%;
+    }
+
+    .event::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: -12px;
+      width: 24px;
+      height: 24px;
+      background-color: #6aaec6;
+      border-radius: 50%;
+    }
+
+    .event:nth-child(even)::before {
+      left: -12px;
+    }
+
+    .event-content {
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .event-content.horizontal {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .event:nth-child(even) .event-content.horizontal {
+      flex-direction: row-reverse;
+    }
+
+    .event-image-side {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .event-text {
+      flex: 1;
+    }
+
+    .summary {
+      font-style: italic;
+      color: #444;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>📝 "Journaling is like whispering to one's self and listening at the same time."</header>
+
+  <div class="timeline">
+    <div class="event">
+      <div class="event-content horizontal">
+        <img src="images/flip.jpg" alt="flip Thinking" class="event-image-side">
+        <div class="event-text">
+          <h3>"Flip Thinking" -- Berthold Gunster</h3>
+          <p class="summary">“Don’t say yes-but, say yes-and to life.” Flip Thinking teaches us that the brain instinctively tries to solve everything — even the unchangeable. But this urge often deepens the problem. True change begins not by fixing the issue, but by flipping your perspective: what if the problem itself becomes the intention? Reframing, rather than resisting, opens the path forward.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-content horizontal">
+        <img src="images/aliabdal.png" alt="AliAbdal" class="event-image-side">
+        <div class="event-text">
+          <h3> "Feel-Good Productivity" -- Ali Abdaal</h3>
+          <p class="summary">Inspired by Ali Abdaal’s approach, this moment is about designing a productivity system that feels joyful, not forced. It’s not about hustling harder — it’s about aligning your work with what truly matters, reducing stress, and making consistency feel effortless. Energy, clarity, and fulfilment become the new metrics of success.</p>
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-content horizontal">
+        <img src="images/ceo.png" alt="The diary of the ceo" class="event-image-side">
+        <div class="event-text">
+          <h3>"The Diary of CEO" -- Steven Bartlett </h3>
+          <p class="summary">This book traces the raw, insightful journey from ambitious entrepreneur to seasoned CEO. Through four powerful pillars — the self, the story, the philosophy, and the team — it dives into lessons on leadership, creativity, personal growth, branding, and mental resilience. A real-world reflection on building something meaningful, with all its highs and lows.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-content horizontal">
+        <img src="images/journla1.jpg" alt="Journaling" class="event-image-side">
+    <div class="event-text">
+      <ul style="padding-left: 20px; line-height: 1.8;">
+        <li><strong>What’s one thing I’ve learned about myself recently — and how did I learn it?</strong></li>
+        <li><strong>What emotion have I been avoiding, and what might it be trying to tell me?</strong></li>
+        <li><strong>When life feels chaotic, what helps me feel grounded again?</strong></li>
+        <!-- <li><strong>Thought Awareness:</strong> If I could observe my thoughts from a distance, what would I notice?</li>
+        <li><strong>Intentional Living:</strong> What does ‘a good day’ look like for me — and how can I create more of them?</li>
+        <li><strong>Motivation in Motion:</strong> What’s one small step I can take today toward something I care about?</li>
+        <li><strong>Gratitude & Relationships:</strong> Who is someone that makes me feel seen — and why?</li> -->
+        <li><strong>What’s something I’m carrying that I need to release?</strong></li>
+        <li><strong>How would my future self thank me for showing up today?</strong></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="event">
+      <div class="event-content horizontal">
+        <img src="images/self help.jpg" alt="Final Pitch" class="event-image-side">
+        <div class="event-text">
+          <h3>🗺️ “The world is wide, and I will not waste my life in friction when it could be turned into momentum.” – Frances Willard</h3>
+          <p class="summary">One last moment to shine. Celebrate your journey and impact!</p>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

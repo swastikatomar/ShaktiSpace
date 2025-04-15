@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PCOS Wellness with Luna</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #f2ccff);
+      color: #4a004a;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-top: 40px;
+      color: #c2185b;
+    }
+
+    .content {
+      text-align: center;
+      padding: 0 20px;
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 30px;
+    }
+
+    .box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      color: #4a004a;
+    }
+
+    .box i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .box button {
+      margin-top: 15px;
+      background-color: #c2185b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .box button:hover {
+      background-color: #9c0b47;
+    }
+
+    /* Luna mascot styles */
+    .mascot {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      z-index: 999;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .luna {
+      font-size: 3rem;
+      animation: float 2.5s ease-in-out infinite, wave 3s infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      30% { transform: rotate(15deg); }
+      60% { transform: rotate(-10deg); }
+    }
+
+    .speech-bubble {
+      display: block;
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      margin-bottom: 10px;
+      background: #fff0fa;
+      color: #5a0055;
+      border: 2px solid #d63384;
+      border-radius: 10px;
+      padding: 12px 15px;
+      max-width: 220px;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: 20px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid #fff0fa;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+
+    @media (max-width: 600px) {
+      .speech-bubble {
+        max-width: 170px;
+        font-size: 0.85rem;
+      }
+    }
+    .center-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh;
+      margin-top: 20px;
+    }
+    
+    .risk-box {
+      width: 250px;
+      height: 250px;
+      background: #fff0fa;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(198, 93, 174, 0.2);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease;
+      border: 2px solid #d63384;
+    }
+    
+    .risk-box:hover {
+      transform: scale(1.05);
+    }
+    
+    .risk-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: pulse 2.5s infinite;
+    }
+    
+    .risk-btn {
+      margin-top: 15px;
+      background-color: #c2185b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .risk-btn:hover {
+      background-color: #9c0b47;
+    }
+
+    .small-risk-box {
+      max-width: 400px;
+      padding: 20px 15px;
+      margin: auto;
+      border: 2px solidrgb(151, 129, 140);
+      background-color: #fff0fa;
+      box-shadow: 0 8px 20px rgba(198, 93, 174, 0.2);
+      border-radius: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .small-risk-box:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      color: #4a004a;
+    }
+    
+    .small-risk-box h3 {
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+    }
+    
+    .small-risk-box p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    
+    .small-risk-box button {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+    }
+    
+    .flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px; /* Enables 3D effect */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #fff;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #f2ccff;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+    
+  </style>
+</head>
+<body>
+  
+
+
+  <h1>PCOS Wellness with Luna 🧚‍♀️</h1>
+
+  <div class="content">
+    <p><strong>Polycystic Ovary Syndrome (PCOS)</strong> is a hormonal disorder that affects many individuals with ovaries. It can lead to irregular periods, excess androgen levels, and polycystic ovaries. But with the right knowledge and support — like from Luna 💕 — you're never alone on your journey.</p>
+  </div>
+
+  <h2>🩺 Check Your PCOS Risk</h2>
+  <div class="grid">
+  <div class="box small-risk-box">
+
+      <i>📋</i>
+      <h3>PCOS Risk Calculator</h3>
+      <p>Check if you’re at risk of PCOS based on your symptoms and lifestyle.</p>
+      <a href="module4_pcos_calculator.html">
+        <button>Take the Assessment</button>
+      </a>
+    </div>
+  </div>
+
+  <h2>✨ What Causes PCOS?</h2>
+  <div class="grid">
+    <div class="box">
+      <i>⚖️</i>
+      <h3>Hormonal Imbalance</h3>
+      <p>PCOS is often linked to imbalanced levels of estrogen, progesterone, and androgens.</p>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9897680/" target="_blank">
+        <button>Learn More</button>
+      </a>
+    </div>
+    <div class="box">
+      <i>💉</i>
+      <h3>Insulin Resistance</h3>
+      <p>High insulin levels can lead to increased androgen production and ovulation issues.</p>
+      <a href="https://thehormonedietitian.medium.com/pcos-what-every-woman-needs-to-know-a9ca5317f6c4" target="_blank">
+        <button>Learn More</button>
+      </a>
+    </div>
+    <div class="box">
+      <i>🧬</i>
+      <h3>Genetics</h3>
+      <p>PCOS tends to run in families, hinting at a genetic component in many cases.</p>
+      <a href="https://medium.com/@rashmi.kudesia/top-ten-things-i-wish-everyone-knew-about-pcos-b3e8158efd0a" target="_blank">
+        <button>Learn More</button>
+      </a>
+    </div>
+  </div>
+
+  <h2>🧘‍♀️ Manage PCOS with Healthy Choices</h2>
+  <div class="grid">
+    <div class="box">
+      <i>🥗</i>
+      <h3>Diet Tips</h3>
+      <p>Eating low-glycemic foods and avoiding processed sugar can help regulate insulin.</p>
+      <a href="https://medium.com/wellness-and-the-science-of-healthy-living/pcos-management-f564936c652d" target="_blank">
+        <button>Learn More</button>
+      </a>
+    </div>
+    <div class="box">
+      <i>🏃‍♀️</i>
+      <h3>Exercise & Stress</h3>
+      <p>Regular movement and mindfulness practices can reduce symptoms significantly.</p>
+      <a href="https://medium.com/@domumgym/how-to-modify-your-workouts-for-pcos-a-comprehensive-guide-for-women-with-polycystic-ovary-81a47861cfe6" target="_blank">
+        <button>Learn More</button>
+      </a>
+    </div>
+  </div>
+
+  
+
+  <!-- 🌟 Luna Mascot -->
+  <div class="mascot" onclick="toggleSpeech()">
+    <div class="luna" id="luna">🧚‍♀️</div>
+    <div class="speech-bubble" id="speech">Hi there! 💕 I'm Luna, your PCOS pal — let's explore together!</div>
+  </div>
+
+  <script>
+    const messages = [
+      "💕 You are strong, inside and out!",
+      "🌿 Stay hydrated & move your body today!",
+      "🥗 Try adding leafy greens to your meals!",
+      "🩸 Track your cycle—it empowers your health!",
+      "🧘‍♀️ A calm mind helps your hormones too 💫",
+      "🍓 PCOS doesn’t define you, beautiful soul!",
+      "💖 Be kind to your body—it’s working hard for you!"
+    ];
+
+    function getRandomMessage() {
+      return messages[Math.floor(Math.random() * messages.length)];
+    }
+
+    function showMessage() {
+      const bubble = document.getElementById("speech");
+      bubble.innerHTML = getRandomMessage();
+      bubble.style.display = "block";
+    }
+
+    function toggleSpeech() {
+      const bubble = document.getElementById("speech");
+      if (bubble.style.display === "none" || bubble.style.display === "") {
+        showMessage();
+      } else {
+        bubble.style.display = "none";
+      }
+    }
+
+    window.onload = () => {
+      showMessage();
+      setTimeout(() => {
+        document.getElementById("speech").style.display = "none";
+      }, 8000);
+    };
+  </script>
+</body>
+</html>

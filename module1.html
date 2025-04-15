@@ -1,0 +1,401 @@
+
+
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarity Space - Mental Wellness Reflection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;500;600&display=swap');
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+    }
+    
+
+    .dark-mode {
+      background: linear-gradient(to bottom right, #6862bb, #a569d3, #c75b7a);
+      color: #e0e0e0;
+    }
+
+    .dark-mode .card-face {
+      background: linear-gradient(to bottom, #424060, #8b5ad4);
+      color: #e0e0e0;
+    }
+
+    .dark-mode h1, .dark-mode h2, .dark-mode h3 {
+      color: #e0e0e0;
+    }
+
+    .dark-mode p {
+      color: #d1d5db;
+    }
+
+    .dark-mode nav {
+      background: linear-gradient(to right, #1e1b4b, #3b0764, #4c0519);
+    }
+
+    .dark-mode nav a, .dark-mode nav button {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #e0e0e0;
+    }
+
+    .dark-mode nav a:hover, .dark-mode nav button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+
+
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .pulse {
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+
+    .card-container {
+      perspective: 1000px;
+    }
+
+    .card {
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .quote-container {
+      height: 100px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .quote {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .quote.active {
+      opacity: 1;
+    }
+
+    .breathing-circle {
+      animation: breathe 8s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0% { transform: scale(0.95); opacity: 0.7; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.7; }
+    }
+
+    .cloud {
+      position: absolute;
+      opacity: 0.8;
+      animation-name: float-cloud;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes float-cloud {
+      0% { transform: translateX(-100px); }
+      100% { transform: translateX(calc(100vw + 100px)); }
+    }
+
+    .cloud-1 {
+      top: 15%;
+      animation-duration: 90s;
+    }
+
+    .cloud-2 {
+      top: 35%;
+      animation-duration: 120s;
+      animation-delay: -30s;
+    }
+
+    .cloud-3 {
+      top: 60%;
+      animation-duration: 110s;
+      animation-delay: -70s;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 min-h-screen">
+  
+    <!-- Paste the navigation code right here -->
+    <nav class="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 shadow-md py-4 px-6 flex flex-col md:flex-row justify-between items-center">
+      <!-- Logo/Brand -->
+      <div class="flex items-center mb-4 md:mb-0">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-200 to-purple-200 mr-3 flex items-center justify-center">
+          <span class="text-xl">🧠</span>
+        </div>
+        <h1 class="text-2xl font-bold text-indigo-800">Clarity Space</h1>
+      </div>
+  
+      <!-- Main Navigation Links -->
+      <ul class="flex flex-wrap justify-center space-x-1 md:space-x-4">
+        <!-- <li><a href="index.html" class="px-3 py-2 rounded-xl bg-indigo-100 hover:bg-indigo-200 text-indigo-800 transition duration-300">Home</a></li> -->
+        <li><a href="module1_reflection.html" class="px-3 py-2 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-800 transition duration-300">Reflection</a></li>
+        <li><a href="module1_resources.html" class="px-3 py-2 rounded-xl bg-blue-100 hover:bg-blue-200 text-blue-800 transition duration-300">Resources</a></li>
+        <li><a href="module1_journal.html" class="px-3 py-2 rounded-xl bg-pink-100 hover:bg-pink-200 text-pink-800 transition duration-300">Journal</a></li>
+        <li><a href="specialists.html" class="px-3 py-2 rounded-xl bg-green-100 hover:bg-green-200 text-green-800 transition duration-300">Support</a></li>
+      </ul>
+  
+      <!-- Toggle Dark Mode Button 
+      <button id="toggle-mode" class="mt-4 md:mt-0 w-10 h-10 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 flex items-center justify-center transition duration-300">
+        🌓
+      </button> -->
+    </nav>
+  
+   
+
+  <!-- Ambient Background Elements -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="cloud cloud-1 w-32 h-16 bg-white rounded-full"></div>
+    <div class="cloud cloud-2 w-48 h-16 bg-white rounded-full"></div>
+    <div class="cloud cloud-3 w-40 h-16 bg-white rounded-full"></div>
+    
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-purple-100 blur-3xl opacity-30 pulse"></div>
+    <div class="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-blue-100 blur-3xl opacity-20 pulse"></div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="relative text-center py-12 px-4">
+    <div class="inline-block mb-8">
+      <div class="breathing-circle w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-indigo-200 to-purple-200 mb-6"></div>
+      <h1 class="text-3xl md:text-4xl font-bold text-indigo-800 mb-4">Welcome to your moment of clarity</h1>
+      <p class="text-lg text-purple-700 max-w-lg mx-auto">Take a deep breath... You're in a safe space.</p>
+    </div>
+
+    <div class="quote-container text-gray-600 max-w-md mx-auto mb-8" id="quote-container">
+      <div class="quote active" data-index="0">
+        "Your mind is your garden. Water it with peace."
+      </div>
+      <div class="quote" data-index="1">
+        "It's okay to not be okay. Awareness is the first step."
+      </div>
+      <div class="quote" data-index="2">
+        "You are not alone, and you are not broken."
+      </div>
+    </div>
+  </header>
+
+  <!-- Reflection Cards Section -->
+  <section class="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 pb-16">
+    <!-- Card 1: How are you feeling? -->
+    <div class="card-container h-80">
+      <div class="card relative w-full h-full cursor-pointer">
+        <!-- Front -->
+        <div class="card-face rounded-2xl shadow-lg p-6 text-center bg-gradient-to-b from-purple-100 to-indigo-100 flex flex-col items-center justify-center">
+          <div class="w-20 h-20 mb-4 rounded-full bg-indigo-200 flex items-center justify-center overflow-hidden">
+            <img src="images/feelings.jpg" alt="Description" class="w-full h-full object-cover">
+          </div>
+          <h2 class="text-xl font-semibold text-indigo-800 mb-2"> 🌤️How are you feeling today?</h2>
+          <p class="text-purple-600">How’s your mind & heart today?</p>
+        </div>
+        <!-- Back -->
+        <div class="card-face card-back rounded-2xl shadow-lg p-6 bg-gradient-to-b from-purple-200 to-indigo-200">
+          <h3 class="text-xl font-semibold text-indigo-900 mb-4">Your feelings are valid</h3>
+          <p class="text-purple-800 mb-4">It's important to acknowledge your emotions without judgment.</p>
+          <div class="grid grid-cols-2 gap-2">
+            <button class="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 px-2 py-1 rounded-xl text-sm transition">Peaceful</button>
+            <button class="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 px-2 py-1 rounded-xl text-sm transition">Anxious</button>
+            <button class="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 px-2 py-1 rounded-xl text-sm transition">Hopeful</button>
+            <button class="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 px-2 py-1 rounded-xl text-sm transition">Overwhelmed</button>
+            <button class="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 px-2 py-1 rounded-xl text-sm transition">Grateful</button>
+            <button class="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 px-2 py-1 rounded-xl text-sm transition">Uncertain</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Breathing Exercise -->
+    <div class="card-container h-80">
+      <div class="card relative w-full h-full cursor-pointer">
+        <div class="card-face rounded-2xl shadow-lg p-6 text-center bg-gradient-to-b from-blue-100 to-purple-100 flex flex-col items-center justify-center">
+          <div class="w-20 h-20 mb-4 rounded-full bg-blue-200 flex items-center justify-center overflow-hidden">
+            <img src="images/breathing.jpg" alt="Description" class="w-full h-full object-cover">
+          </div>
+          <h2 class="text-xl font-semibold text-blue-800 mb-2"> 🌬️Breathing Exercise</h2>
+          <p class="text-purple-600">Breathe In, Hover Out</p>
+        </div>
+        <div class="card-face card-back rounded-2xl shadow-lg p-6 bg-gradient-to-b from-blue-200 to-purple-200 flex flex-col items-center justify-center">
+          <h3 class="text-xl font-semibold text-blue-900 mb-4">4-7-8 Breathing</h3>
+          <div class="breathing-circle w-24 h-24 rounded-full bg-blue-300 opacity-80 mb-4"></div>
+          <p class="text-blue-800">Breathe in for 4 seconds</p>
+          <p class="text-blue-800">Hold for 7 seconds</p>
+          <p class="text-blue-800">Exhale for 8 seconds</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Positive Affirmation -->
+    <div class="card-container h-80">
+      <div class="card relative w-full h-full cursor-pointer">
+        <div class="card-face rounded-2xl shadow-lg p-6 text-center bg-gradient-to-b from-purple-100 to-pink-100 flex flex-col items-center justify-center">
+          <div class="w-20 h-20 mb-4 rounded-full bg-pink-200 flex items-center justify-center overflow-hidden">
+            <img src="images/affirmation.jpg" alt="Description" class="w-full h-full object-cover">
+          </div>
+          <h2 class="text-xl font-semibold text-pink-800 mb-2">🌸 Daily Affirmation</h2>
+          <p class="text-purple-600">Your mantra for today !</p>
+        </div>
+        <div class="card-face card-back rounded-2xl shadow-lg p-6 bg-gradient-to-b from-purple-200 to-pink-200 flex flex-col items-center justify-center">
+          <h3 class="text-xl font-semibold text-pink-900 mb-4">🌱Gentle Reminder</h3>
+          <p class="text-lg text-purple-900 mb-4">“The little things I do each day support my peace of mind.”</p>
+          <p class="text-purple-800">“Whisper these words to yourself — they are yours to believe.”
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Anxiety Pattern -->
+    <div class="card-container h-80">
+      <div class="card relative w-full h-full cursor-pointer">
+        <div class="card-face rounded-2xl shadow-lg p-6 text-center bg-gradient-to-b from-indigo-100 to-blue-100 flex flex-col items-center justify-center">
+          <div class="w-20 h-20 mb-4 rounded-full bg-indigo-200 flex items-center justify-center overflow-hidden">
+            <img src="images/patterns.jpg" alt="Description" class="w-full h-full object-cover">
+          </div>
+          <h2 class="text-xl font-semibold text-indigo-800 mb-2">🧠Understanding Patterns</h2>
+          <p class="text-blue-600">Discover your inner trends</p>
+        </div>
+        <div class="card-face card-back rounded-2xl shadow-lg p-6 bg-gradient-to-b from-indigo-200 to-blue-200">
+          <h3 class="text-xl font-semibold text-indigo-900 mb-4">Anxiety Cycle</h3>
+          <p class="text-blue-800 mb-4">Recognizing your patterns is the first step to creating change:</p>
+          <ol class="text-blue-800 text-left list-decimal pl-5">
+            <li>Trigger event or thought</li>
+            <li>Physical sensations arise</li>
+            <li>Anxious thoughts intensify</li>
+            <li>Avoidance behaviors</li>
+            <li>Temporary relief</li>
+            <li>Cycle reinforcement</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Gratitude Practice -->
+    <div class="card-container h-80">
+      <div class="card relative w-full h-full cursor-pointer">
+        <div class="card-face rounded-2xl shadow-lg p-6 text-center bg-gradient-to-b from-green-100 to-blue-100 flex flex-col items-center justify-center">
+          <div class="w-20 h-20 mb-4 rounded-full bg-green-200 flex items-center justify-center overflow-hidden">
+            <img src="images/grateful.jpg" alt="Description" class="w-full h-full object-cover">
+          </div>
+          <h2 class="text-xl font-semibold text-green-800 mb-2">🌺✨Gratitude Moment</h2>
+          <p class="text-blue-600">Savor a Quiet Thanks</p>
+        </div>
+        <div class="card-face card-back rounded-2xl shadow-lg p-6 bg-gradient-to-b from-green-200 to-blue-200">
+          <h3 class="text-xl font-semibold text-green-900 mb-4">Three Things</h3>
+          <p class="text-green-800 mb-4">What three small things brought you joy today?</p>
+          <div class="space-y-2">
+            <input type="text" placeholder="I'm grateful for..." class="w-full px-3 py-2 bg-green-50 rounded-lg border border-green-200 text-green-800 focus:outline-none focus:ring-2 focus:ring-green-300">
+            <input type="text" placeholder="I'm grateful for..." class="w-full px-3 py-2 bg-green-50 rounded-lg border border-green-200 text-green-800 focus:outline-none focus:ring-2 focus:ring-green-300">
+            <input type="text" placeholder="I'm grateful for..." class="w-full px-3 py-2 bg-green-50 rounded-lg border border-green-200 text-green-800 focus:outline-none focus:ring-2 focus:ring-green-300">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Mindful Moment -->
+    <div class="card-container h-80">
+      <div class="card relative w-full h-full cursor-pointer">
+        <div class="card-face rounded-2xl shadow-lg p-6 text-center bg-gradient-to-b from-purple-100 to-indigo-100 flex flex-col items-center justify-center">
+          <div class="w-20 h-20 mb-4 rounded-full bg-purple-200 flex items-center justify-center overflow-hidden">
+            <img src="images/mindful.jpg" alt="Description" class="w-full h-full object-cover">
+          </div>
+          <h2 class="text-xl font-semibold text-purple-800 mb-2">🔁Mindful Moment</h2>
+          <p class="text-indigo-600">Tap Into Your Thoughts</p>
+        </div>
+        <div class="card-face card-back rounded-2xl shadow-lg p-6 bg-gradient-to-b from-purple-200 to-indigo-200 flex flex-col items-center justify-center">
+          <h3 class="text-xl font-semibold text-purple-900 mb-4">5-4-3-2-1 Exercise</h3>
+          <p class="text-purple-800 mb-3">Notice in your surroundings:</p>
+          <ul class="text-indigo-800 text-left list-disc pl-5">
+            <li>5 things you can see</li>
+            <li>4 things you can touch</li>
+            <li>3 things you can hear</li>
+            <li>2 things you can smell</li>
+            <li>1 thing you can taste</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="text-center py-8 text-indigo-600">
+    <p>"Sometimes the bravest thing you can do is to simply exist ✨"</p>
+    <div class="mt-4 text-sm">
+      <button class="bg-purple-100 hover:bg-purple-200 text-purple-800 px-4 py-2 rounded-xl mx-2 transition duration-300">Journal</button>
+      <button class="bg-indigo-100 hover:bg-indigo-200 text-indigo-800 px-4 py-2 rounded-xl mx-2 transition duration-300">Resources</button>
+       <!-- Linked Feedback Button -->
+    <a href="module1_feedback.html">
+      <button class="bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-xl mx-2 transition duration-300">Feedback🌸💜</button>
+    </a>
+    </div>
+  </footer>
+
+  <script>
+    // Rotating quotes
+    const quoteContainer = document.getElementById('quote-container');
+    const quotes = quoteContainer.querySelectorAll('.quote');
+    
+    let currentQuote = 0;
+    
+    setInterval(() => {
+      quotes[currentQuote].classList.remove('active');
+      currentQuote = (currentQuote + 1) % quotes.length;
+      quotes[currentQuote].classList.add('active');
+    }, 6000);
+
+    document.getElementById('toggle-mode').addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    })
+  </script>
+
+
+
+
+</body>
+
+</html>

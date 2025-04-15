@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f9f3f3, #d4e3fc, #e8f8f5, #fef9e7, #f2e0ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #333;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Module Dashboard Styling */
+  .module-dashboard {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: #ffffff; /* White background */
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid #ddd; /* Light border for clarity */
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    cursor: pointer;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15); /* Slightly enhanced shadow on hover */
+  }
+
+  
+  .feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .feature-card a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: var(--accent);
+    color: black;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .feature-card a:hover {
+    filter: brightness(1.1);
+  }
+
+  .module-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 3rem;
+    color: var(--accent);
+  }
+</style>
+
+
+
+</head>
+<body>
+  <nav>
+    <h1>Women's Health</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="specialists.html">Specialists</a></li>
+      <li><a class="active" href="contact.html">Contact</a></li>
+      
+      <li><a id="nav-signup" href="signup.html">Sign Up</a></li>
+      <li><a id="nav-logout" href="#">Logout</a></li>
+    </ul>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span id="welcome-message"></span>
+      <button id="toggle-mode">🌓</button>
+      <label for="theme-select">🎨 Theme:</label>
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+        <option value="teal">Teal</option>
+        <option value="violet">Violet</option>
+      </select>
+    </div>
+  </nav>
+
+  <!-- 🌐 Contact Form -->
+  <section class="contact-links-section">
+  <h2>Get in Touch</h2>
+  <div class="form-link-cards">
+    <div class="form-card">
+      
+      <h3>Contact Us</h3>
+      <a href="https://forms.gle/vUn7sgJyGwjRpR8i6" target="_blank" class="form-btn">Open Contact Form</a>
+    </div>
+    <div class="form-card">
+      
+      <h3>Feedback</h3>
+      <a href="https://forms.gle/Ve7pTSuskRaoZEJp7" target="_blank" class="form-btn">Give Feedback</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

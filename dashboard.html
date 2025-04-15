@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Women's Health Platform</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <h1>Women's Health</h1>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="modules.html">Modules</a></li>
+    <li><a href="specialists.html">Specialist</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="signup.html" id="nav-signup">Sign Up</a></li>
+    <li><a href="#" id="nav-logout" style="display: none;">Logout</a></li>
+  </ul>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <span id="welcome-message"></span>
+    <button id="toggle-mode">🌓</button>
+    <label for="theme-select">🎨 Theme:</label>
+    <select id="theme-select">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="blue">Blue</option>
+      <option value="teal">Teal</option>
+      <option value="violet">Violet</option>
+    </select>
+  </div>
+</nav>
+
+<h3 id="welcome-message" style="text-align:center; margin-top:1rem;"></h3>
+
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-image">
+      <img src="images/empower.jpg" alt="Empowered Woman" />
+    </div>
+    <div class="hero-text">
+      <h2>Welcome to ShaktiSpace </h2>
+      <p>ShaktiSpace is your sanctuary for holistic health, embracing both mental and physical wellness for every woman. Begin your journey to balance, healing, and empowerment.</p>
+      <p class="image-desc">This space celebrates strength, self-care, and sisterhood. Dive in to discover expert-guided paths to a healthier, happier you.</p>
+    </div>
+  </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>

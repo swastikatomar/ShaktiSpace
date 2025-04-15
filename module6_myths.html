@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reproductive Health Myths</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #003366;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .myths-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeIn 1.8s ease;
+       /* Add this line */
+  row-gap: 5rem; /* ⬅️ Increase vertical spacing between rows */
+    }
+
+    .flip-card {
+      perspective: 1000px;
+    }
+
+    .myth-card {
+  width: 90%;
+  height: 250px; /* was 320px */
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+
+    .flip-card:hover .myth-card {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      backface-visibility: hidden;
+      background: #ffffffee;
+      transition: all 0.4s ease;
+    }
+
+    .card-front {
+      color: #003366;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-front .myth-title {
+      font-weight: 600;
+      color: #005f99;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-front .fact {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .card-back {
+      background: #d0eaff;
+      color: #004c75;
+      transform: rotateY(180deg);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-back h3 {
+      margin-bottom: 1rem;
+    }
+
+    .card-back p {
+      font-size: 0.95rem;
+      padding: 0 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #336699;
+      animation: fadeIn 2s ease;
+      margin-top: 4rem;  /* Adds space above the footer */
+
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Rest of your page content here -->
+  <header>
+    <h1>Myths vs Facts</h1>
+    <p>Let’s break down common myths in women’s reproductive health and replace them with solid facts and fun insights!</p>
+  </header>
+
+  <section class="myths-container">
+
+    <!-- CARD 1 -->
+    <div class="flip-card">
+      <div class="myth-card">
+        <div class="card-face card-front">
+          <div class="myth-title">Myth: You can’t get pregnant during your period.</div>
+          <div class="fact">Fact: While less likely, pregnancy can still occur if ovulation overlaps. Sperm can live up to 5 days in the body, increasing the risk.</div>
+        </div>
+        <div class="card-face card-back">
+          <h3>🌀 Did You Know?</h3>
+          <p>Your cycle can shift due to stress, diet, or illness — making timing tricky!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="flip-card">
+      <div class="myth-card">
+        <div class="card-face card-front">
+          <div class="myth-title">Myth: Vaginas need special cleaning products.</div>
+          <div class="fact">Fact: Vaginas are self-cleaning! Using scented soaps or douches can disrupt your pH balance and lead to infections.</div>
+        </div>
+        <div class="card-face card-back">
+          <h3>✨ Hygiene Tip</h3>
+          <p>Just warm water and gentle, fragrance-free soap for the external area is enough.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="flip-card">
+      <div class="myth-card">
+        <div class="card-face card-front">
+          <div class="myth-title">Myth: PMS is just in your head.</div>
+          <div class="fact">Fact: PMS includes emotional and physical symptoms. Hormonal fluctuations before menstruation can trigger real changes in mood and energy.</div>
+        </div>
+        <div class="card-face card-back">
+          <h3>🌿 Natural Tip</h3>
+          <p>Herbal teas, magnesium-rich foods, and journaling can help you feel balanced!</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CARD 4 -->
+    <div class="flip-card">
+      <div class="myth-card">
+        <div class="card-face card-front">
+          <div class="myth-title">Myth: You can't use tampons if you're a virgin.</div>
+          <div class="fact">Fact: Using tampons does not affect virginity. Virginity is a social concept — tampons are safe when used properly.</div>
+        </div>
+        <div class="card-face card-back">
+          <h3>🩸 Period Tip</h3>
+          <p>Start with smaller tampons and read instructions carefully for comfort and safety.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="flip-card">
+      <div class="myth-card">
+        <div class="card-face card-front">
+          <div class="myth-title">Myth: Birth control causes permanent infertility.</div>
+          <div class="fact">Fact: Most people regain fertility quickly after stopping birth control. It doesn’t cause permanent infertility unless another condition is present.</div>
+        </div>
+        <div class="card-face card-back">
+          <h3>🧬 Quick Fact</h3>
+          <p>It’s normal for cycles to take a couple months to regulate after stopping hormonal birth control.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="flip-card">
+      <div class="myth-card">
+        <div class="card-face card-front">
+          <div class="myth-title">Myth: Only older women face reproductive issues.</div>
+          <div class="fact">Fact: Conditions like PCOS, endometriosis, or fibroids can affect teens and young adults. Awareness and early care are vital.</div>
+        </div>
+        <div class="card-face card-back">
+          <h3>👩‍⚕️ Health Fact</h3>
+          <p>Never ignore persistent period pain or unusual symptoms. Your body speaks — listen to it.</p>
+        </div>
+      </div>
+    </div>
+    
+
+  </section>
+
+  <footer>
+    © 2025 Women’s Wellness. Know the facts. Share the truth. 💙
+  </footer>
+</body>
+</html>

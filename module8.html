@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mental Resilience</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <h1>Women's Health</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a id="nav-signup" href="signup.html">Sign Up</a></li>
+      <li><a id="nav-logout" href="#">Logout</a></li>
+    </ul>
+    <div>
+      <span id="welcome-message"></span>
+      <button id="toggle-mode">🌓</button>
+      <label for="theme-select">🎨 Theme:</label>
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+        <option value="teal">Teal</option>
+        <option value="violet">Violet</option>
+      </select>
+    </div>
+  </nav>
+
+  <section class="module-section">
+  <h2>Module 8: Mental Resilience</h2>
+
+
+    </section>
+
+    <section class="resilience-tabs">
+      <div class="card" onclick="location.href='module8_InspirationVault.html'">
+        <img src="images/inspiration.jpg" alt="Inspiration Vault Image" />
+        <h3>Inspiration Vault</h3>
+        <p>Tap into a collection of empowering stories, quotes, and moments that ignite mental strength.</p>
+        <button>Enter Vault</button>
+      </div>
+    
+      <div class="card" onclick="location.href='module8_ResilianceToolkit.html'">
+        <img src="images/resiliance.jpg" alt="Resilience" />
+        <h3>Resilience Toolkit</h3>
+        <p>Access practical tools, exercises, and guidance to develop and reinforce your inner resilience.</p>
+        <button>Open Toolkit</button>
+      </div>
+    </section>
+    
+    <style>
+      .resilience-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+        flex-wrap: wrap;
+      }
+    
+      .card {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        padding: 1.5rem;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+    
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      }
+
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        margin-bottom: 1rem;
+      }
+
+    
+      .card h3 {
+        margin-top: 0;
+        font-size: 1.4rem;
+      }
+    
+      .card p {
+        font-size: 0.95rem;
+        color: #555;
+      }
+    
+      .card button {
+        margin-top: 1rem;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+    
+      .card button:hover {
+        background-color: #000;
+      }
+    </style>
+    
+
+
+  <script src="script.js"></script>
+</body>
+</html>

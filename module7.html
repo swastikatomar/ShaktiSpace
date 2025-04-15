@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 7 – Preventive Care</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f9f3f3, #d4e3fc, #e8f8f5, #fef9e7, #f2e0ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #333;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+    /* Module Dashboard Styling */
+    .module-dashboard {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      border: 2.5px solid #ccc; /* Soft pastel theme color */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    
+
+    .feature-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card a {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .feature-card a:hover {
+      filter: brightness(1.1);
+    }
+
+    .module-heading {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 3rem;
+      color: var(--accent);
+
+      
+    }
+  </style>
+</head>
+<body>
+    
+  <!-- Navigation Bar -->
+  <nav>
+    <h1>Women's Health</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="specialists.html">Specialists</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="signup.html" id="nav-signup">Sign Up</a></li>
+      <li><a href="#" id="nav-logout">Logout</a></li>
+    </ul>
+    <div>
+      <span id="welcome-message"></span>
+      <button id="toggle-mode">🌓</button>
+      <label for="theme-select">🎨 Theme:</label>
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+        <option value="teal">Teal</option>
+        <option value="violet">Violet</option>
+      </select>
+    </div>
+  </nav>
+
+  <!-- Module Heading -->
+  <h2 class="module-heading">🩺Module 7: Preventive Care</h2>
+
+  <!-- Module Dashboard -->
+  <section class="module-dashboard">
+
+    <!-- Regular Checkups -->
+    <div class="feature-card">
+      <img src="images/checkup.webp">
+      <h3>Regular Checkups</h3>
+      
+      <a href="module7_checkups.html">Learn More</a>
+    </div>
+
+    <!-- Vaccinations -->
+    <div class="feature-card">
+      <img src="images/vaccination.png">
+      <h3>Vaccinations</h3>
+      
+      <a href="module7_vaccinations.html">View Schedule</a>
+    </div>
+
+    
+    
+    <!-- specialist -->
+    <div class="feature-card">
+      <img src="images/specialist.png" ">
+      <h3> Specialists </h3>
+      
+      <a href="specialists.html">Explore</a>
+    </div>
+
+
+  <!-- Cancer Predictor -->
+<div class="feature-card">
+<img src="images/cancer.png" >
+<h3> Breast Cancer Predictor </h3>
+
+<a href="https://breast-cancer-detection-ml-model-ld0v.onrender.com/" target="_blank" class="cta-button">Try Now</a>
+</div>
+
+<!-- Asthma Predictor -->
+<div class="feature-card">
+<img src="images/asthma.png">
+<h3>Asthma Risk Predictor</h3>
+
+<a href="module7_asthma.html">Predict Now</a>
+</div>
+
+<!-- HIV Risk Predictor -->
+<div class="feature-card">
+<img src="images/hiv.jpeg">
+<h3>HIV Risk Predictor</h3>
+
+<a href="module7_hiv.html" target="_blank" class="cta-button"> Predict Now</a>
+</div>
+
+</section>
+ 
+
+  <script src="script.js"></script>
+</body>
+</html>

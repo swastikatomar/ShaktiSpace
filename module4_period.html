@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Period Tracker </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+  body {
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #ffdde1, #ff758c, #ff7eb3);
+    background-size: 600% 600%;
+    animation: gradientBG 20s ease infinite;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow-x: hidden;
+    flex-direction: column;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    20% { background-position: 20% 50%; }
+    40% { background-position: 40% 50%; }
+    60% { background-position: 60% 50%; }
+    80% { background-position: 80% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-heading {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .quote {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  .tracker-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .label-heading {
+    font-weight: bold;
+    color: #333;
+  }
+
+  input[type="date"],
+  input[type="number"] {
+    margin: 0.5rem 0;
+    padding: 0.8rem;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #ff758c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #ff7eb3;
+  }
+
+  #output {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  .floating-emoji {
+    position: fixed;
+    animation: float 10s linear infinite;
+    opacity: 0.3;
+    z-index: 0;
+  }
+
+  @keyframes float {
+    from {
+      transform: translateY(100vh);
+    }
+    to {
+      transform: translateY(-100vh);
+    }
+  }
+
+  .floating-emoji.e1 { left: 5%; animation-delay: 0s; }
+  .floating-emoji.e2 { left: 15%; animation-delay: 1s; }
+  .floating-emoji.e3 { left: 25%; animation-delay: 0s; }
+  .floating-emoji.e4 { left: 35%; animation-delay: 1s; }
+  .floating-emoji.e5 { left: 45%; animation-delay: 0s; }
+  .floating-emoji.e6 { left: 55%; animation-delay: 1s; }
+  .floating-emoji.e7 { left: 65%; animation-delay: 0s; }
+  .floating-emoji.e8 { left: 75%; animation-delay: 1s; }
+  .floating-emoji.e9 { left: 85%; animation-delay: 0s; }
+  .floating-emoji.e10 { left: 95%; animation-delay: 1s; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-heading"> 🌸 Period Tracker 🌸 </h1>
+    <p class="quote"><strong>"Empower your health. Track your cycle. Know your body. 💖"</strong></p>
+
+    <div class="tracker-box">
+        <label for="lastPeriod">📅 <span class="label-heading">Last Period Date:</span></label><br>
+        <input type="date" id="lastPeriod"><br>
+        
+        <label for="cycleLength">📏 <span class="label-heading">Average Cycle Length (days):</span></label><br>
+        <input type="number" id="cycleLength"><br>
+        
+        <label for="periodDuration">🩸 <span class="label-heading">Period Duration (days):</span></label><br>
+        <input type="number" id="periodDuration"><br>        
+
+      <button onclick="trackPeriod()">
+        📊 <span>Analyze My Cycle</span>
+      </button>
+
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <!-- Floating watermarks -->
+  <div class="floating-emoji e1">💖</div>
+  <div class="floating-emoji e2">🌸</div>
+  <div class="floating-emoji e3">✨</div>
+  <div class="floating-emoji e4">💕</div>
+  <div class="floating-emoji e5">🌙</div>
+  <div class="floating-emoji e6">💖</div>
+  <div class="floating-emoji e7">🌸</div>
+  <div class="floating-emoji e8">✨</div>
+  <div class="floating-emoji e9">🌙</div>
+  <div class="floating-emoji e10">💕</div>
+
+  <script>
+    function trackPeriod() {
+      const lastPeriod = document.getElementById("lastPeriod").value;
+      const cycleLength = document.getElementById("cycleLength").value;
+      const periodDuration = document.getElementById("periodDuration").value;
+      const output = document.getElementById("output");
+
+      if (!lastPeriod || !cycleLength || !periodDuration) {
+        output.innerHTML = "Please fill in all fields!";
+        return;
+      }
+
+      const today = new Date();
+      const lastPeriodDate = new Date(lastPeriod);
+      const nextPeriodDate = new Date(lastPeriodDate);
+      nextPeriodDate.setDate(lastPeriodDate.getDate() + parseInt(cycleLength));
+
+      output.innerHTML = `
+        Your next period is expected on: ${nextPeriodDate.toDateString()} <br>
+        Average cycle length: ${cycleLength} days <br>
+        Period duration: ${periodDuration} days
+      `;
+
+      // Trigger confetti animation
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+</body>
+</html>

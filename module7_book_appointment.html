@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book an Appointment</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f9f3f3, #d4e3fc, #e8f8f5, #fef9e7, #f2e0ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #333;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffffdd; /* semi-transparent white */
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+  }
+  
+
+    h2 {
+      text-align: center;
+      color: #2b6777;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #2b6777;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #1e4d5a;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      animation: fadeIn 0.5s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .popup-content h3 {
+      color: #2b6777;
+    }
+
+    .popup-content button {
+      background-color: #2b6777;
+      color: #fff;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    canvas#confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="container">
+    <h2>Book a Health Checkup</h2>
+    <form id="appointmentForm">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label for="contact">Contact Number</label>
+      <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}" placeholder="10-digit number">
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="package">Checkup Package</label>
+      <select id="package" name="package" required>
+        <option value="">Choose</option>
+        <option>Basic Health Checkup</option>
+        <option>Full Body Checkup</option>
+        <option>Women's Wellness</option>
+        <option>Heart & Cholesterol</option>
+      </select>
+
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="notes" rows="4"></textarea>
+
+      <button type="submit">Confirm Appointment</button>
+    </form>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3>🎉 Appointment Booked Successfully!</h3>
+      <p>Thank you for booking. We'll contact you soon.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <!-- Inline JavaScript for Confetti -->
+  <script>
+  const form = document.getElementById("appointmentForm");
+  const popup = document.getElementById("popup");
+  const canvas = document.getElementById("confetti-canvas");
+  const ctx = canvas.getContext("2d");
+
+  let confetti = [];
+  let confettiInterval;
+  const colors = ["#ff0a54", "#ff477e", "#ff7096", "#ff85a1", "#fbb1bd", "#f9bec7"];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function createConfetti() {
+    confetti = [];
+    for (let i = 0; i < 150; i++) {
+      confetti.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * 50 + 10,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        tilt: Math.random() * 10 - 10,
+        tiltAngleIncremental: Math.random() * 0.07 + 0.05,
+        tiltAngle: 0
+      });
+    }
+  }
+
+  function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confetti.forEach(c => {
+      ctx.beginPath();
+      ctx.lineWidth = c.r;
+      ctx.strokeStyle = c.color;
+      ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
+      ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 2);
+      ctx.stroke();
+    });
+
+    updateConfetti();
+  }
+
+  function updateConfetti() {
+    confetti.forEach(c => {
+      c.tiltAngle += c.tiltAngleIncremental;
+      c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
+      c.tilt = Math.sin(c.tiltAngle) * 15;
+
+      if (c.y > canvas.height) {
+        c.y = -10;
+        c.x = Math.random() * canvas.width;
+      }
+    });
+  }
+
+  function startConfetti() {
+    createConfetti();
+    confettiInterval = setInterval(drawConfetti, 20);
+  }
+
+  function stopConfetti() {
+    clearInterval(confettiInterval);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    popup.style.display = "flex";
+    startConfetti();
+    setTimeout(() => {
+      stopConfetti(); // Confetti stops after 2 seconds
+    }, 3500);
+    form.reset();
+  });
+
+  function closePopup() {
+    popup.style.display = "none";
+  }
+</script>
+
+
+</body>
+</html>

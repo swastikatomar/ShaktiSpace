@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HIV Risk Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f9f3f3, #d4e3fc, #e8f8f5, #fef9e7, #f2e0ff);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: #333;
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    form input, form select {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e8435c;
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🧪 HIV Risk Calculator</h1>
+    <form id="hivForm">
+      <input type="number" placeholder="Age" id="age" required />
+      <select id="gender" required>
+        <option value="">Select Gender</option>
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+        <option value="2">Other</option>
+      </select>
+      <select id="unprotectedSex" required>
+        <option value="">Had Unprotected Sex Recently?</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <input type="number" placeholder="No. of Sexual Partners (Last 6 Months)" id="partners" required />
+      <select id="ivDrugs" required>
+        <option value="">Use Intravenous Drugs?</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <select id="sti" required>
+        <option value="">History of STI?</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <select id="prep" required>
+        <option value="">Are You on PrEP?</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <select id="partnerStatus" required>
+        <option value="">Partner’s HIV Status Known?</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <button type="submit">Calculate Risk</button>
+    </form>
+    <div class="result" id="result">Risk result will appear here.</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('hivForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      let score = 0;
+      const unprotectedSex = document.getElementById('unprotectedSex').value;
+      const partners = parseInt(document.getElementById('partners').value);
+      const ivDrugs = document.getElementById('ivDrugs').value;
+      const sti = document.getElementById('sti').value;
+      const prep = document.getElementById('prep').value;
+      const partnerStatus = document.getElementById('partnerStatus').value;
+
+      if (unprotectedSex === "yes") score++;
+      if (partners >= 3) score++;
+      if (ivDrugs === "yes") score++;
+      if (sti === "yes") score++;
+      if (prep === "no") score++;
+      if (partnerStatus === "no") score++;
+
+      let message = "";
+      let color = "";
+
+      if (score <= 1) {
+        message = "✅ Low Risk of HIV Infection";
+        color = "#2ecc71";
+      } else if (score <= 3) {
+        message = "⚠️ Medium Risk — Consider Testing";
+        color = "#f39c12";
+      } else {
+        message = "🚨 High Risk — Get Tested ASAP";
+        color = "#e74c3c";
+      }
+
+      resultDiv.textContent = message;
+      resultDiv.style.color = color;
+    });
+  </script>
+</body>
+</html>

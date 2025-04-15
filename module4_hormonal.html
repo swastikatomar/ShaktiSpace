@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hormonal Health</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comfortaa', cursive;
+      background: radial-gradient(circle at top left, #ffc0cb, #ffe4ec);
+      color: #3a003a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #b3006c;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 2px #fff0f5;
+      text-align: center;
+    }
+
+    p.subtitle {
+      color: #6b004b;
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 1.2rem;
+      max-width: 700px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .card {
+      background: white;
+      border-radius: 25px;
+      padding: 30px 25px;
+      box-shadow: 0 10px 30px rgba(255, 192, 203, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card:hover {
+      transform: scale(1.07);
+      background: linear-gradient(to bottom right, #ffe6f0, #ffd6e8);
+    }
+
+    .card h3 {
+      color: #b3006c;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #4a004a;
+    }
+
+    .quiz {
+      max-width: 700px;
+      background: #fff0f5;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 60px;
+      box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+    }
+
+    .quiz h2 {
+      color: #b3006c;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .quiz label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    .quiz button {
+      background: linear-gradient(to right, #ff8fa3, #ffb6c1);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 15px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-family: 'Comfortaa', cursive;
+    }
+
+    .quiz button:hover {
+      background: linear-gradient(to right, #ff7e9d, #ffa5b5);
+    }
+
+    .quiz .result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #4a004a;
+      padding: 15px;
+      border-radius: 15px;
+      background: linear-gradient(to right, #ffe0f0, #ffc8dc);
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <body>
+    
+  
+    <!-- Rest of your page content here -->
+  
+  <h1>Hormonal Health</h1>
+  <p class="subtitle">Empower your body through awareness, balance, and self-love ✨</p>
+
+  <div class="grid">
+    <a href="https://www.healthline.com/health/hormonal-imbalance" class="card">
+      <h3>💗 What is Hormonal Health?</h3>
+      <p>Learn how hormones influence your energy, mood, and cycles.</p>
+    </a>
+    <a href="https://www.betterhealth.vic.gov.au/health/conditionsandtreatments/menstrual-cycle" class="card">
+      <h3>💧 Hormonal Cycle Phases</h3>
+      <p>Understand the follicular, ovulatory, luteal, and menstrual phases.</p>
+    </a>
+    <a href="https://www.nutritionist-resource.org.uk/articles/womens-health-nutrient-needs-and-lifestyle-considerations" class="card">
+      <h3>🥦 Nutrition & Lifestyle</h3>
+      <p>Discover hormone-friendly foods and daily habits for balance.</p>
+    </a>
+    <a href="https://www.uptodate.com/contents/polycystic-ovary-syndrome-pcos-beyond-the-basics/print" class="card">
+      <h3>💛 Common Imbalances</h3>
+      <p>Spot signs of estrogen dominance, PCOS, and more.</p>
+    </a>
+    <a href="https://www.healthline.com/health/womens-health/natural-treatment-pcos" class="card">
+      <h3>🌿 Natural Support</h3>
+      <p>Explore herbs, cycle-syncing, and natural remedies.</p>
+    </a>
+    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10065776/" class="card">
+      <h3>🧘‍♀️ Relaxation Tools</h3>
+      <p>Practice breathwork, gentle movement, and deep sleep techniques.</p>
+    </a>
+  </div>
+
+  <!-- Hormone Quiz -->
+  <div class="quiz">
+    <h2>🔮 <strong>How In Tune Are Your Hormones?</strong></h2>
+    <form id="quizForm">
+      <p><strong>1. How would you describe your energy levels throughout the day?</strong></p>
+      <label><input type="radio" name="q1" value="1" /> Consistent and stable ⚡</label>
+      <label><input type="radio" name="q1" value="2" /> Sometimes I crash 😴</label>
+      <label><input type="radio" name="q1" value="3" /> Always low and tired 🥱</label>
+
+      <p><strong>2. How’s your sleep lately?</strong></p>
+      <label><input type="radio" name="q2" value="1" /> Peaceful like a cloud ☁️</label>
+      <label><input type="radio" name="q2" value="2" /> I wake up a few times 🌙</label>
+      <label><input type="radio" name="q2" value="3" /> What’s sleep again? 😵‍💫</label>
+
+      <p><strong>3. How are your moods?</strong></p>
+      <label><input type="radio" name="q3" value="1" /> I feel emotionally balanced 💖</label>
+      <label><input type="radio" name="q3" value="2" /> I get irritable sometimes 😠</label>
+      <label><input type="radio" name="q3" value="3" /> Mood swings all the way 🎢</label>
+
+      <p><strong>4. How regular is your cycle?</strong></p>
+      <label><input type="radio" name="q4" value="1" /> Pretty much on time 📅</label>
+      <label><input type="radio" name="q4" value="2" /> It varies a little 🔄</label>
+      <label><input type="radio" name="q4" value="3" /> Totally unpredictable ❓</label>
+
+      <p><strong>5. How's your skin treating you?</strong></p>
+      <label><input type="radio" name="q5" value="1" /> Clear and glowing ✨</label>
+      <label><input type="radio" name="q5" value="2" /> A few breakouts 😕</label>
+      <label><input type="radio" name="q5" value="3" /> Major acne struggles 😩</label>
+
+      <button type="button" onclick="showResult()">See My Results</button>
+    </form>
+    <div class="result" id="resultText"></div>
+  </div>
+
+  <script>
+    function showResult() {
+      let total = 0;
+      for (let i = 1; i <= 5; i++) {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (answer) total += parseInt(answer.value);
+      }
+
+      const resultDiv = document.getElementById('resultText');
+
+      if (total <= 7) {
+        resultDiv.innerText = "🌟 You're glowing! Your hormones seem quite balanced. Keep up the good habits!";
+      } else if (total <= 11) {
+        resultDiv.innerText = "🌸 You're doing okay! Some imbalances might be peeking through. Try more rest, hydration, and hormone-friendly foods.";
+      } else {
+        resultDiv.innerText = "⚠️ Your hormones could use a little TLC! Consider a gentle reset with better sleep, less stress, and nourishing meals.";
+      }
+    }
+  </script>
+</body>
+</html>

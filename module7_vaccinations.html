@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaccinations</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f9f3f3, #d4e3fc, #e8f8f5, #fef9e7, #f2e0ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #333;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffffdd; /* semi-transparent for glassy effect */
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    backdrop-filter: blur(6px);
+  }
+  
+
+    h1 {
+      color:rgb(27, 57, 94);
+      text-align: center;
+    }
+    p {
+      color:rgb(108, 153, 220);
+      line-height: 1.6;
+    }
+    .vaccine-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .vaccine-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .vaccine-item:last-child {
+      border-bottom: none;
+    }
+    .vaccine-item input {
+      margin-right: 15px;
+    }
+    .cta-button {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color:rgb(109, 160, 202);
+      color: #ffffff;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+      background-color:rgb(151, 144, 227);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vaccinations</h1>
+    <p>Keeping up with vaccinations is crucial for protecting yourself and the community from various diseases. Below is a list of recommended vaccines. Please select the ones you have received:</p>
+    <form id="vaccination-form">
+      <ul class="vaccine-list">
+        <li class="vaccine-item">
+          <input type="checkbox" id="bcg" name="vaccines[]" value="BCG">
+          <label for="bcg">BCG (Bacillus Calmette–Guérin) – Protects against tuberculosis</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="hepatitis-b" name="vaccines[]" value="Hepatitis B">
+          <label for="hepatitis-b">Hepatitis B – Protects against hepatitis B virus</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="opv" name="vaccines[]" value="OPV">
+          <label for="opv">OPV (Oral Polio Vaccine) – Protects against poliomyelitis</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="pentavalent" name="vaccines[]" value="Pentavalent">
+          <label for="pentavalent">Pentavalent – Combines vaccines against Diphtheria, Pertussis, Tetanus, Hepatitis B, and Haemophilus influenzae type B</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="rotavirus" name="vaccines[]" value="Rotavirus">
+          <label for="rotavirus">Rotavirus – Protects against rotavirus infections</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="measles-rubella" name="vaccines[]" value="Measles-Rubella">
+          <label for="measles-rubella">Measles-Rubella (MR) – Protects against measles and rubella</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="je" name="vaccines[]" value="Japanese Encephalitis">
+          <label for="je">Japanese Encephalitis – Protects against Japanese encephalitis</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="pcv" name="vaccines[]" value="Pneumococcal Conjugate">
+          <label for="pcv">Pneumococcal Conjugate Vaccine (PCV) – Protects against pneumococcal infections</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="hpv" name="vaccines[]" value="HPV">
+          <label for="hpv">Human Papillomavirus (HPV) – Protects against cervical and other cancers</label>
+        </li>
+        <li class="vaccine-item">
+          <input type="checkbox" id="influenza" name="vaccines[]" value="Influenza">
+          <label for="influenza">Influenza – Protects against seasonal flu</label>
+        </li>
+      </ul>
+      <button type="submit" class="cta-button">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('vaccination-form');
+      const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+
+      // Load saved checkbox states
+      checkboxes.forEach(checkbox => {
+        const isChecked = localStorage.getItem(checkbox.id) === 'true';
+        checkbox.checked = isChecked;
+
+        // Save state on change
+        checkbox.addEventListener('change', function () {
+          localStorage.setItem(checkbox.id, this.checked);
+        });
+      });
+
+      // Optional: Handle form submission
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Process form data here
+        alert('Form submitted!');
+      });
+    });
+  </script>
+</body>
+</html>

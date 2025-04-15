@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitLife - Your Complete Fitness Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .overlay-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .overlay-section.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Flip Card CSS */
+      .flip-card {
+        perspective: 1000px;
+        width: 260px;
+        height: 180px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 10px;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        border-radius: 12px;
+      }
+
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: white;
+        background-color: #708090;
+      }
+
+      .flip-card-front {
+        background: linear-gradient(145deg, #36454F, #36454F);
+      }
+      
+      .flip-card-back {
+        background: linear-gradient(145deg, #36454F, #36454F);
+        color: white;
+        transform: rotateY(180deg);
+      }
+
+      .flip-instruction {
+        font-size: 0.75rem;
+        color: #bdc3c7;
+        font-style: italic;
+        margin-top: 10px;
+      }
+
+      /* Gallery card styles */
+      .gallery-card {
+        perspective: 1000px;
+        width: 220px;
+        height: 160px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 10px;
+      }
+
+      .gallery-card .flip-card-front {
+        background: linear-gradient(145deg, #374151, #1f2937);
+      }
+
+      .gallery-card .flip-card-back {
+        background: linear-gradient(145deg, #1f2937, #111827);
+      }
+
+          /* Image front card customization */
+      .image-card {
+        padding: 0;
+        background: none;
+      }
+
+       .image-card img {
+         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+
+
+
+
+
+
+    </style>
+  </head>
+
+  <body class="bg-gray-900 text-white font-sans relative">
+    <!-- Hero Section -->
+    <section
+      class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-900 via-indigo-900 to-black text-center px-4 relative"
+    >
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">
+        Achieve Your Dream Body
+      </h1>
+      <p class="text-lg md:text-xl mb-8 text-gray-300 max-w-xl">
+        No trainer? No problem. Get fit, feel great, and crush your goals — all
+        in one place!
+      </p>
+      <div class="flex flex-col md:flex-row gap-4">
+        <button
+          onclick="revealOverlay()"
+          class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-full text-white text-lg transition-all"
+        >
+          Get Started
+        </button>
+        <a 
+          href="#gallery" 
+          class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-full text-white text-lg transition-all"
+        >
+          Explore Gallery
+        </a>
+      </div>
+
+      <!-- Overlay Benefits Section (Initially Hidden) -->
+      <div
+        id="overlaySection"
+        class="absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-95 flex items-center justify-center hidden overlay-section z-20 px-4"
+      >
+        <div class="max-w-5xl text-center">
+          <h2 class="text-3xl font-bold mb-6">Why Fitness Matters💪</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            
+           
+            <!-- Card 1 - Modified with links -->
+<div class="flip-card h-64">
+  <div class="flip-card-inner h-full">
+    <div class="flip-card-front">
+      <h3 class="text-xl font-semibold mb-2 text-yellow-400">
+        Better Stamina
+      </h3>
+      <p>Regular exercise improves heart health and endurance.</p>
+      <!-- <p class="flip-instruction">Click to flip</p> -->
+    </div>
+    <div class="flip-card-back">
+      <span class="text-2xl">❤️</span>
+      <p class="mb-3">Consistent cardio strengthens your heart, boosts circulation and lung capacity.</p>
+      <div class="flex flex-col gap-2 mt-2">
+        <a href="https://www.youtube.com/watch?v=ml6cT4AZdqI" target="_blank" class="text-blue-300 hover:text-blue-100 underline flex items-center">
+          <svg class="w-5 h-5 mr-1" fill="red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+          </svg>
+          Watch: Cardio Basics
+        </a>
+        <a href="https://www.cdc.gov/physical-activity-basics/about/index.html" target="_blank" class="text-blue-300 hover:text-blue-100 underline flex items-center">
+          <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+          </svg>
+          Read Article
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+            <!-- Card 2 -->
+           
+<div class="flip-card h-64">
+  <div class="flip-card-inner h-full">
+    <div class="flip-card-front">
+      <h3 class="text-xl font-semibold mb-2 text-yellow-400">
+        Mental Health
+      </h3>
+      <p>Reduce stress and anxiety with consistent workouts.</p>
+      <!-- <p class="flip-instruction">Click to flip</p> -->
+    </div>
+    <div class="flip-card-back">
+      <span class="text-2xl">🧠</span>
+      <p class="mb-3">Reduce stress and anxiety with consistent workouts.</p>
+      <div class="flex flex-col gap-2 mt-2">
+        <a href="https://www.youtube.com/watch?v=bIXOo8D9Qsc" target="_blank" class="text-blue-300 hover:text-blue-100 underline flex items-center">
+          <svg class="w-5 h-5 mr-1" fill="red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+          </svg>
+          Watch: Cardio Basics
+        </a>
+        <a href="https://www.health.harvard.edu/mind-and-mood/exercise-is-an-all-natural-treatment-to-fight-depression" target="_blank" class="text-blue-300 hover:text-blue-100 underline flex items-center">
+          <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+          </svg>
+          Read Article
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+            <!-- Card 3 -->
+            <section>
+              <div class="flex flex-col items-center justify-center">
+                <!-- Flip Card -->
+                <div class="flip-card h-64 mb-6">
+                  <div class="flip-card-inner h-full">
+                    <div class="flip-card-front">
+                      <h3 class="text-xl font-semibold mb-2 text-yellow-400">
+                        Stronger Physique
+                      </h3>
+                      <p>Build lean muscle and boost your self-image.</p>
+                      <!-- <p class="flip-instruction">Click to flip</p> -->
+                    </div>
+                    <div class="flip-card-back">
+                      <span class="text-2xl">💪</span>
+                      <p class="mb-3">
+                        Strength training improves posture, confidence, and quality of life.
+                      </p>
+                      <div class="flex flex-col gap-2 mt-2">
+                        <a href="https://www.youtube.com/watch?v=2tM1LFFxeKg" target="_blank"
+                          class="text-blue-300 hover:text-blue-100 underline flex items-center">
+                          <svg class="w-5 h-5 mr-1" fill="red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                            </path>
+                          </svg>
+                          Watch: Cardio Basics
+                        </a>
+                        <a href="https://www.nhs.uk/live-well/exercise/" target="_blank"
+                          class="text-blue-300 hover:text-blue-100 underline flex items-center">
+                          <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z">
+                            </path>
+                          </svg>
+                          Read Article
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Aligned Button -->
+                <button onclick="hideOverlay()" 
+                  class="bg-gray-600 hover:bg-gray-500 px-6 py-2 rounded-full text-white">
+                  Close
+                </button>
+              </div>
+            </section>
+            
+
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-black">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-indigo-400 mb-10">Fitness Inspirations</h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center">
+          <!-- 15 Flip Cards -->
+          <div class="flip-card gallery-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front image-card">
+                <img src="images/surya namashkar.jpg" alt="Card Image" />
+              </div>
+              <div class="flip-card-back">
+                <p>"Om Suryaaya Namah — Salutations to the divine light, the source of all vision and vitality."</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card gallery-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front image-card">
+                <img src="images/Chandra-namskar.jpg" alt="Card Image" />
+              </div>
+              <div class="flip-card-back"><p>"Om Chandraaya Namah — Shanti ka prakash."
+                (Salutations to the light of peace.)</p></div>
+            </div>
+          </div>
+
+          <div class="flip-card gallery-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front image-card">
+                <img src="images/tadasana.jpg" alt="Card Image" />
+              </div>
+              <div class="flip-card-back"><p>Tadasana (Mountain Pose) 
+                “Stand tall, root deep — stillness is your strength.”</p></div>
+            </div>
+          </div>
+
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/Vrikshasana.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Vrikshasana (Tree Pose)
+            “Balance like a tree — steady in the storm, graceful in growth.”
+            
+            </p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/bhujangasana.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Bhujangasana (Cobra Pose)
+            “Rise with your heart open — strength begins in surrender.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/balasana.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p> Balasana (Child’s Pose)
+            “Return to yourself — rest is sacred.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/baddhakonasana.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Baddha Konasana (Butterfly Pose)
+            “Open your hips, open your heart — flow with feminine power."</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/setuBadhasana.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Setu Bandhasana (Bridge Pose)
+            “Bridge the body and breath — rise into renewal.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/cowpose.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Marjaryasana–Bitilasana (Cat-Cow Pose)
+            “Move like breath — fluid, free, and full of life.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/suptamstdyndrasana.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p> Supta Matsyendrasana (Supine Twist)
+            “Twist gently, release deeply — let go to grow.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/paschimottasana.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Paschimottanasana (Seated Forward Bend)
+            “Fold inward — find calm in the stretch of surrender.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/shavasana.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Shavasana (Corpse Pose)
+            “In stillness, everything heals — just be.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/anulomVilom.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Anulom Vilom (Alternate Nostril Breathing)
+            “Balance your breath, balance your being.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/ujjayi.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Ujjayi Pranayama (Victorious Breath / Ocean Breath)
+            “Breathe like the ocean — steady, strong, and serene.”</p></div></div></div>
+          <div class="flip-card gallery-card"><div class="flip-card-inner"><div class="flip-card-front image-card">
+            <img src="images/bhramari.jpg" alt="Card Image" />
+          </div><div class="flip-card-back"><p>Bhramari Pranayama (Bee Breath)
+            “Buzz out the noise — hum your way to peace.”</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6 text-center text-sm text-gray-400">
+      © 2025 FitLife. All rights reserved.
+    </footer>
+
+    <script>
+      function revealOverlay() {
+        const overlay = document.getElementById("overlaySection");
+        overlay.classList.remove("hidden");
+        setTimeout(() => {
+          overlay.classList.add("show");
+        }, 10);
+      }
+
+      function hideOverlay() {
+        const overlay = document.getElementById("overlaySection");
+        overlay.classList.remove("show");
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+        }, 500);
+      }
+
+      // Flip effect JS
+      document.querySelectorAll(".flip-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          card.classList.toggle("flipped");
+        });
+      });
+    </script>
+  </body>
+</html>

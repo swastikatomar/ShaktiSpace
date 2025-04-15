@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menstrual Health | Women's Health</title>
+  <style>
+    :root {
+      --primary-color: #e91e63;
+      --background-color: #fff9fc;
+      --text-color: #333;
+      --card-bg: #fff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    nav h1 {
+      font-size: 1.8rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffdce6;
+    }
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    #theme-select {
+      padding: 0.3rem;
+      border-radius: 5px;
+    }
+
+    .module-section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .module-heading {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+
+    .module-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+
+    .feature-card {
+      background-color: var(--card-bg);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .feature-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .feature-card .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .feature-card .btn:hover {
+      background-color: #c2185b;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Women's Health</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="specialists.html">Specialists</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="signup.html" id="nav-signup">Sign Up</a></li>
+      <li><a href="#" id="nav-logout">Logout</a></li>
+    </ul>
+    <div class="nav-controls">
+      <span id="welcome-message"></span>
+      <button id="toggle-mode">🌓</button>
+      <label for="theme-select">🎨 Theme:</label>
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+        <option value="teal">Teal</option>
+        <option value="violet">Violet</option>
+      </select>
+    </div>
+  </nav>
+
+  <section class="module-section">
+    <h2 class="module-heading">Menstrual Health Dashboard</h2>
+
+    <div class="module-dashboard">
+      <div class="feature-card">
+        <img src="images/hormonal_health.jpg" >
+        <h3>Hormonal Health</h3>
+        <p>Understand hormonal changes and how they affect menstrual cycles.</p>
+        <a href="module4_hormonal.html" class="btn">Learn More</a>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/pcos.jpg" >
+        <h3>PCOS </h3>
+        <p>Check if you’re at risk of PCOS based on symptoms and lifestyle.</p>
+        <a href="module4_pcos.html" class="btn">Explore</a>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/period_tracker.jpg">
+        <h3>Period Date Tracker</h3>
+        <p>Track your period dates, flow, symptoms, and more.</p>
+        <a href="module4_period.html" class="btn">Explore</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const themes = {
+      light: {
+        '--primary-color': '#e91e63',
+        '--background-color': '#fff9fc',
+        '--text-color': '#333',
+        '--card-bg': '#fff'
+      },
+      dark: {
+        '--primary-color': '#ff4081',
+        '--background-color': '#121212',
+        '--text-color': '#f0f0f0',
+        '--card-bg': '#1e1e1e'
+      },
+      blue: {
+        '--primary-color': '#2196f3',
+        '--background-color': '#e3f2fd',
+        '--text-color': '#0d47a1',
+        '--card-bg': '#ffffff'
+      },
+      teal: {
+        '--primary-color': '#009688',
+        '--background-color': '#e0f2f1',
+        '--text-color': '#004d40',
+        '--card-bg': '#ffffff'
+      },
+      violet: {
+        '--primary-color': '#9c27b0',
+        '--background-color': '#f3e5f5',
+        '--text-color': '#4a148c',
+        '--card-bg': '#ffffff'
+      }
+    };
+
+    const themeSelect = document.getElementById("theme-select");
+    const toggleModeBtn = document.getElementById("toggle-mode");
+
+    function applyTheme(theme) {
+      const selected = themes[theme];
+      for (let key in selected) {
+        document.documentElement.style.setProperty(key, selected[key]);
+      }
+    }
+
+    // Apply saved or default theme
+    const savedTheme = localStorage.getItem('selected-theme') || 'light';
+    themeSelect.value = savedTheme;
+    applyTheme(savedTheme);
+
+    // Theme selector
+    themeSelect.addEventListener("change", () => {
+      const selectedTheme = themeSelect.value;
+      applyTheme(selectedTheme);
+      localStorage.setItem('selected-theme', selectedTheme);
+    });
+
+    // Toggle dark/light only (quick toggle)
+    toggleModeBtn.addEventListener("click", () => {
+      const current = themeSelect.value;
+      const newTheme = current === "dark" ? "light" : "dark";
+      themeSelect.value = newTheme;
+      applyTheme(newTheme);
+      localStorage.setItem('selected-theme', newTheme);
+    });
+  </script>
+</body>
+</html>

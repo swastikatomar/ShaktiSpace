@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Modules</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <h1>Women's Health</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a class="active" href="modules.html">Modules</a></li>
+      <li><a href="specialists.html">Specialists</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a id="nav-signup" href="signup.html">Sign Up</a></li>
+      <li><a id="nav-logout" href="#">Logout</a></li>
+    </ul>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span id="welcome-message"></span>
+      <button id="toggle-mode">🌓</button>
+      <label for="theme-select">🎨 Theme:</label>
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+        <option value="teal">Teal</option>
+        <option value="violet">Violet</option>
+      </select>
+    </div>
+  </nav>
+
+  <section class="module-section">
+    <h2>Explore 8 Health Modules</h2>
+    <div class="module-grid">
+      <div class="module-card">
+        <h3>Module 1: Mental Wellness</h3>
+        <p>Introduction to stress, anxiety, and emotional well-being.</p>
+        <a href="module1.html" class="learn-more-btn">Learn More</a>
+      </div>
+      <div class="module-card">
+        <h3>Module 2: Physical Fitness</h3>
+        <p>Fitness routines, exercise plans, and staying active daily.</p>
+        <a href="module2.html" class="learn-more-btn">Learn More</a>
+      </div>
+      <div class="module-card">
+        <h3>Module 3: Nutrition & Diet</h3>
+        <p>Balanced eating, supplements, and nutrition facts.</p>
+        <a href="module3.html" class="learn-more-btn">Learn More</a>
+      </div>
+      <div class="module-card">
+        <h3>Module 4: Menstrual Health</h3>
+        <p>PCOS, menstrual health, and hormone balance.</p>
+        <a href="module4.html" class="learn-more-btn">Learn More</a>
+      </div>
+      <div class="module-card">
+        <h3>Module 5: Sleep & Recovery</h3>
+        <p>Sleep cycles, insomnia, and body recovery tips.</p>
+        <a href="module5.html" class="learn-more-btn">Learn More</a>
+      </div>
+      <div class="module-card">
+        <h3>Module 6: Reproductive Health</h3>
+        <p>Sexual health, hygiene, and related myths.</p>
+        <a href="module6.html" class="learn-more-btn">Learn More</a>
+      </div>
+      <div class="module-card">
+        <h3>Module 7: Preventive Care</h3>
+        <p>Regular checkups, vaccinations, and early diagnoses.</p>
+        <a href="module7.html" class="learn-more-btn">Learn More</a>
+      </div>
+      <div class="module-card">
+        <h3>Module 8: Mental Resilience</h3>
+        <p>Confidence, self-esteem, and building positive habits.</p>
+        <a href="module8.html" class="learn-more-btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SwasthyaShe - BMI & BMR Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .input-style {
+      padding: 0.5rem;
+      border: 2px solid #cbd5e0;
+      border-radius: 0.75rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-style:focus {
+      border-color: #68d391;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-green-200 via-yellow-100 to-green-100 flex items-center justify-center p-4">
+
+  <!-- Calculator Container -->
+  <div class="w-full max-w-xl bg-white shadow-2xl rounded-2xl p-8 space-y-6">
+
+    <!-- Animation video placeholder -->
+    <div class="w-full h-48 bg-gray-200 rounded-xl flex items-center justify-center">
+      <video class="w-full h-full object-cover" autoplay muted loop>
+        <source src="images/BmiAndBmr.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-3xl font-bold text-center text-green-700">🍃 BMI & BMR Calculator 🌼</h1>
+
+    <!-- Form -->
+    <form id="healthForm" class="space-y-4">
+      <div class="flex flex-col">
+        <label for="age" class="font-semibold">🎂 Age</label>
+        <input type="number" id="age" class="input-style" required>
+      </div>
+      <div class="flex flex-col">
+        <label for="height" class="font-semibold">📏 Height (cm)</label>
+        <input type="number" id="height" class="input-style" required>
+      </div>
+      <div class="flex flex-col">
+        <label for="weight" class="font-semibold">⚖️ Weight (kg)</label>
+        <input type="number" id="weight" class="input-style" required>
+      </div>
+      <button type="submit" class="bg-green-500 text-white px-6 py-2 rounded-xl shadow-md hover:bg-green-600 transition">Calculate 🍽️</button>
+    </form>
+
+    <!-- Result Pop-up -->
+    <div id="resultPopup" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div class="bg-white p-6 rounded-2xl shadow-xl max-w-md w-full text-center space-y-4">
+        <h2 class="text-2xl font-bold text-green-600">Your Health Report 🩺</h2>
+        <p id="bmiResult"></p>
+        <p id="bmrResult"></p>
+        <button onclick="closePopup()" class="mt-4 bg-yellow-400 text-white px-4 py-2 rounded-full hover:bg-yellow-500">Close ✖️</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('healthForm');
+    const resultPopup = document.getElementById('resultPopup');
+    const bmiResult = document.getElementById('bmiResult');
+    const bmrResult = document.getElementById('bmrResult');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const age = parseInt(document.getElementById('age').value);
+      const height = parseFloat(document.getElementById('height').value);
+      const weight = parseFloat(document.getElementById('weight').value);
+
+      const heightInMeters = height / 100;
+      const bmi = weight / (heightInMeters * heightInMeters);
+
+      // Default BMR formula for females only (since it's a women-only site)
+      const bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+
+      let healthMessage = '';
+      if (bmi < 18.5) healthMessage = 'You are underweight. 🍵 Boost up your nutrition!';
+      else if (bmi < 24.9) healthMessage = 'You are healthy! 🥦 Keep it up!';
+      else if (bmi < 29.9) healthMessage = 'You are overweight. 🏃 Time for some action!';
+      else healthMessage = 'You are in the obese range. 🩺 Consider consulting a healthcare provider.';
+
+      bmiResult.innerHTML = `💡 Your BMI is <strong>${bmi.toFixed(2)}</strong>. ${healthMessage}`;
+      bmrResult.innerHTML = `🔥 Your daily calorie need is approximately <strong>${Math.round(bmr)}</strong> kcal.`;
+
+      resultPopup.classList.remove('hidden');
+    });
+
+    function closePopup() {
+      resultPopup.classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>

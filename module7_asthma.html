@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Asthma Risk Predictor</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f9f3f3, #d4e3fc, #e8f8f5, #fef9e7, #f2e0ff);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: #333;
+      padding: 0;
+      margin: 0;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #554fd8;
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌬️ Asthma Risk Predictor</h1>
+    <input type="number" id="gender" placeholder="Gender (1=Male, 0=Female)" />
+    <input type="number" id="temp" placeholder="Temperature (°C)" />
+    <input type="number" id="humidity" placeholder="Humidity (%)" />
+    <input type="number" id="pm25" placeholder="PM 2.5" />
+    <input type="number" id="pm10" placeholder="PM 10" />
+    <input type="number" id="actual_pefr" placeholder="Actual PEFR Value" />
+    <button onclick="predictAsthma()">Predict Risk</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function predictAsthma() {
+      const g = parseInt(document.getElementById('gender').value);
+      const p = parseFloat(document.getElementById('temp').value);
+      const q = parseFloat(document.getElementById('humidity').value);
+      const r = parseFloat(document.getElementById('pm25').value);
+      const s = parseFloat(document.getElementById('pm10').value);
+      const actual_pefr = parseFloat(document.getElementById('actual_pefr').value);
+
+      if (isNaN(g) || isNaN(p) || isNaN(q) || isNaN(r) || isNaN(s) || isNaN(actual_pefr)) {
+        document.getElementById("result").textContent = "Please fill all values correctly.";
+        return;
+      }
+
+      // ⚠️ Dummy predicted PEFR based on input (simulates a model)
+      const predicted_pefr = 500 - g*30 - p*2 + q*1.5 - r*0.8 - s*0.5;
+      const perpefr = (actual_pefr / predicted_pefr) * 100;
+
+      let status = '';
+      if (perpefr >= 80) {
+        status = '🟢 SAFE';
+      } else if (perpefr >= 50) {
+        status = '🟠 MODERATE';
+      } else {
+        status = '🔴 HIGH RISK';
+      }
+
+      document.getElementById("result").innerHTML = `
+        <p>Predicted PEFR: ${predicted_pefr.toFixed(2)}</p>
+        <p>PEFR %: ${perpefr.toFixed(2)}%</p>
+        <p>Status: <strong>${status}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mental Health Resources</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #e0f7fa, #f3e5f5);
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .float-thing {
+      position: absolute;
+      opacity: 0.2;
+      animation: floaty 20s infinite ease-in-out;
+    }
+
+    @keyframes floaty {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    .leaf, .bubble, .petal {
+      font-size: 3rem;
+      user-select: none;
+    }
+
+    .bubble {
+      color: #bbdefb;
+    }
+
+    .leaf {
+      color: #c8e6c9;
+    }
+
+    .petal {
+      color: #f8bbd0;
+    }
+
+    /* Resource Cards Container */
+    .resources-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Flip Card Styles */
+   
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.flip-card-front {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #1a237e;
+}
+
+.flip-card-back {
+  background: rgba(26, 35, 126, 0.85);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+ /* Flip Card Styles */
+ /* Flip Card Styles */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.flip-card-front {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #1a237e;
+}
+
+.flip-card-back {
+  background: #1a237e;
+  /* background: rgba(138, 43, 226, 0.8); */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #7c4dff;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.resource-item {
+  text-align: left;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.resource-item:hover {
+  background: rgba(124, 77, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.resource-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+.gita-quote {
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
+  padding: 10px;
+}
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .resources-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 20px;
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+<body class="text-center py-16 px-4 text-gray-800">
+
+  <!-- Floating Calm Elements -->
+  <div class="float-thing bubble" style="top: 10%; left: 20%;">🫧</div>
+  <div class="float-thing leaf" style="top: 30%; left: 70%;">🍃</div>
+  <div class="float-thing petal" style="top: 50%; left: 10%;">🌸</div>
+  <div class="float-thing bubble" style="top: 80%; left: 40%;">🫧</div>
+  <div class="float-thing leaf" style="top: 20%; left: 50%;">🍃</div>
+  <div class="float-thing petal" style="top: 60%; left: 75%;">🌸</div>
+
+  <!-- Header -->
+  <h1 class="text-4xl md:text-5xl font-bold text-blue-800 mb-6">
+    🧘‍♀️ Mental Health Resources
+  </h1>
+
+  <!-- Quote -->
+  <p class="text-lg md:text-xl text-gray-700 italic font-medium max-w-2xl mx-auto mb-10">
+    "It's not about managing your emotions; it's all about managing your reaction to your emotion."
+  </p>
+
+  <!-- Resource Cards Section -->
+  <div class="resources-container">
+    <!-- Crisis Resources Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h2 class="section-title">Crisis Resources</h2>
+          <div class="resource-list">
+            <div class="resource-item">
+              <a href="tel:988" class="resource-link">988 Suicide & Crisis Lifeline</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.samaritans.org/" target="_blank" class="resource-link">Samaritans (UK)</a>
+            </div>
+            <div class="resource-item">
+              <a href="sms:741741&body=HOME" class="resource-link">Crisis Text Line: Text HOME to 741741</a>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p class="gita-quote">
+            <strong>"For him who has conquered the mind, the mind is the best of friends; but for one who has failed to do so, his mind will remain the greatest enemy."</strong>
+            <br>— Bhagavad Gita (Chapter 6, Verse 6)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apps & Tools Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h2 class="section-title">Apps & Tools</h2>
+          <div class="resource-list">
+            <div class="resource-item">
+              <a href="https://www.calm.com" target="_blank" class="resource-link">Calm</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.headspace.com" target="_blank" class="resource-link">Headspace</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.youper.ai" target="_blank" class="resource-link">Youper</a>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p class="gita-quote">
+            <strong>"The mind is restless and difficult to restrain, but it is subdued by practice."</strong>
+            <br>— Bhagavad Gita (Chapter 6, Verse 35)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Articles & Reading Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h2 class="section-title">Articles & Reading</h2>
+          <div class="resource-list">
+            <div class="resource-item">
+              <a href="https://www.mind.org.uk" target="_blank" class="resource-link">Mind UK - Info & Support</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.nimh.nih.gov/health" target="_blank" class="resource-link">NIMH - Mental Health Topics</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://psychcentral.com" target="_blank" class="resource-link">Psych Central</a>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p class="gita-quote">
+            <strong>"When a man dwells on the pleasure of sense, attraction for them arises in him. From attraction arises desire, from desire anger."</strong>
+            <br>— Bhagavad Gita (Chapter 2, Verse 62)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Podcasts & Videos Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h2 class="section-title">Podcasts & Videos</h2>
+          <div class="resource-list">
+            <div class="resource-item">
+              <a href="https://www.mentalpod.com" target="_blank" class="resource-link">The Mental Illness Happy Hour</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.youtube.com/c/KatiMorton" target="_blank" class="resource-link">Kati Morton (YouTube)</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://therapychat.com" target="_blank" class="resource-link">Therapy Chat</a>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p class="gita-quote">
+            <strong>"You have the right to work, but never to the fruit of work. You should never engage in action for the sake of reward."</strong>
+            <br>— Bhagavad Gita (Chapter 2, Verse 47)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Community & Support Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h2 class="section-title">Community & Support</h2>
+          <div class="resource-list">
+            <div class="resource-item">
+              <a href="https://www.reddit.com/r/mentalhealth/" target="_blank" class="resource-link">Reddit: r/mentalhealth</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.7cupsoftea.com" target="_blank" class="resource-link">7 Cups of Tea</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.dailystrength.org/group/mental-health-support" target="_blank" class="resource-link">DailyStrength Forums</a>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p class="gita-quote">
+            <strong>"One who sees inaction in action, and action in inaction, is intelligent among men, and is in the transcendental position."</strong>
+            <br>— Bhagavad Gita (Chapter 4, Verse 18)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meditation & Mindfulness Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h2 class="section-title">Meditation & Mindfulness</h2>
+          <div class="resource-list">
+            <div class="resource-item">
+              <a href="https://www.insightmeditationcenter.org" target="_blank" class="resource-link">Insight Meditation Center</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.mindful.org" target="_blank" class="resource-link">Mindful.org</a>
+            </div>
+            <div class="resource-item">
+              <a href="https://www.tarabrach.com/guided-meditations" target="_blank" class="resource-link">Tara Brach Guided Meditations</a>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p class="gita-quote">
+            <strong>"Yoga is the journey of the self, through the self, to the self."</strong>
+            <br>— Bhagavad Gita (Chapter 6, Verse 20)
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add click to flip functionality
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Don't flip if clicking on a link
+        if (e.target.tagName === 'A' || e.target.closest('a')) {
+          e.stopPropagation();
+          return;
+        }
+        this.classList.toggle('flipped');
+      });
+    });
+  </script>
+
+
+
+</body>
+</html>
+
+
+
+

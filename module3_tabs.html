@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diet Tabs for Women</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .diet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .diet-card {
+      background-color: var(--card);
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .diet-card:hover {
+      transform: translateY(-8px);
+      background: linear-gradient(to bottom right, #fef9c3, #d1fae5);
+    }
+
+    .diet-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .diet-card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--accent);
+    }
+
+    .diet-card p {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .diet-card a {
+      margin-top: 1rem;
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .diet-card a:hover {
+      filter: brightness(0.9);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Women's Health</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="specialists.html">Specialists</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a id="nav-signup" href="signup.html">Sign Up</a></li>
+      <li><a id="nav-logout" href="#">Logout</a></li>
+    </ul>
+    <div>
+      <span id="welcome-message"></span>
+      <button id="toggle-mode">🌓</button>
+      <label for="theme-select">🎨 Theme:</label>
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+        <option value="teal">Teal</option>
+        <option value="violet">Violet</option>
+      </select>
+    </div>
+  </nav>
+
+  <section class="module-section">
+    <h2 style="text-align: center; color: var(--accent); margin-bottom: 1.5rem;">🍽️ Diet by Life Stage</h2>
+
+    <div class="diet-grid">
+      <!-- Each Diet Card -->
+      <div class="diet-card">
+        <img src="images/Hormonal.jpg" alt="Hormonal Balance">
+        <h2>🌸 Hormonal Balance (PCOS, PMS)</h2>
+        <p>A diet rich in omega-3s, fiber, and anti-inflammatory foods helps stabilize hormones and ease mood swings.</p>
+        <a href="https://www.youtube.com/results?search_query=hormone+balancing+recipes" target="_blank">🍵 Watch Recipes</a>
+      </div>
+
+      <div class="diet-card">
+        <img src="images/Fit.jpg" alt="Fitness">
+        <h2>🏋️‍♀️ Fitness & Muscle Gain</h2>
+        <p>Fuel with lean proteins, healthy carbs, and fats to build strength and tone. Think tofu, eggs, quinoa.</p>
+        <a href="https://www.youtube.com/results?search_query=high+protein+recipes+for+muscle+gain+women" target="_blank">🍗 Watch Recipes</a>
+      </div>
+
+      <div class="diet-card">
+        <img src="images/WeightLoss.jpg" alt="Weight Loss">
+        <h2>🧘‍♀️ Sustainable Weight Loss</h2>
+        <p>Balanced meals with fiber, lean protein & hydration support long-term fat loss and energy.</p>
+        <a href="https://www.youtube.com/results?search_query=weight+loss+recipes+for+women" target="_blank">🥗 Watch Recipes</a>
+      </div>
+
+      <div class="diet-card">
+        <img src="images/heart.jpg" alt="Heart Health">
+        <h2>❤️ Heart-Healthy Diet</h2>
+        <p>Low-sodium, high-fiber meals: oats, avocados, beans, olive oil, and fish like salmon.</p>
+        <a href="https://www.youtube.com/results?search_query=heart+healthy+recipes+for+women" target="_blank">🥑 Watch Recipes</a>
+      </div>
+
+      <div class="diet-card">
+        <img src="images/Pregenancy.jpg" alt="Pregnancy Nutrition">
+        <h2>🤰 Pregnancy Nutrition</h2>
+        <p>Folate, iron, calcium, and healthy fats support the baby’s growth and mom’s energy.</p>
+        <a href="https://www.youtube.com/results?search_query=pregnancy+diet+recipes+for+women" target="_blank">🍼 Watch Recipes</a>
+      </div>
+
+      <div class="diet-card">
+        <img src="images/vegan.jpg" alt="Vegan Diet">
+        <h2>🌿 Vegan Nutrition</h2>
+        <p>Colorful plates of legumes, nuts, whole grains, and veggies give all nutrients, plant-based.</p>
+        <a href="https://www.youtube.com/results?search_query=vegan+diet+recipes+for+women" target="_blank">🥬 Watch Recipes</a>
+      </div>
+
+      <div class="diet-card">
+        <img src="images/menopause.jpg" alt="Menopause Support">
+        <h2>🌼 Menopause Support</h2>
+        <p>Calcium, Vitamin D, soy, and whole grains support bones and mood during menopause.</p>
+        <a href="https://www.youtube.com/results?search_query=menopause+diet+recipes+for+women" target="_blank">🍶 Watch Recipes</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Women's Health Initiative</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

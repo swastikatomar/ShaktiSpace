@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Techniques & White Noise</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .flip-card {
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-green-100 min-h-screen font-sans">
+
+
+     <!-- Flip Sound Audio -->
+  <audio id="flipSound" src="images/flip.mp3" preload="auto"></audio>
+
+  <!-- Header Section -->
+  <header class="bg-gradient-to-r from-blue-300 to-green-300 text-center py-10 shadow-md">
+    <h1 class="text-4xl font-extrabold text-white tracking-wide">
+      ✨ "Let her sleep, for when she wakes, she will move mountains." ✨ 🌜💭💮
+    </h1>
+  </header>
+
+  <!-- Section: Sleep Techniques -->
+  <section class="p-8">
+    <h2 class="text-3xl font-bold text-center text-blue-800 mb-6">
+      🛌 Sleep Techniques
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 4-7-8 Breathing -->
+      <div class="flip-card bg-transparent">
+        <div class="flip-card-inner relative w-full h-64">
+          <div class="flip-card-front absolute w-full h-full bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center">
+            <img src="images/sleep4.jpg" alt="4-7-8 Breathing" class="h-24 mb-3">
+            <h3 class="text-xl font-semibold text-blue-800">4-7-8 Breathing</h3>
+            <p class="text-sm text-gray-600 text-center">Breathe in for 4, hold for 7, exhale for 8. Calm in seconds.</p>
+          </div>
+          <div class="flip-card-back absolute w-full h-full bg-blue-100 rounded-2xl shadow-xl p-6 flex items-center justify-center">
+            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">
+              <button class="bg-gradient-to-r from-blue-400 to-green-400 text-white px-4 py-2 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm">
+                🎬 Watch Tutorial
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progressive Muscle Relaxation -->
+      <div class="flip-card bg-transparent">
+        <div class="flip-card-inner relative w-full h-64">
+          <div class="flip-card-front absolute w-full h-full bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center">
+            <img src="images/muscle.jpg" alt="Muscle Relaxation" class="h-24 mb-3">
+            <h3 class="text-xl font-semibold text-blue-800">Muscle Relaxation</h3>
+            <p class="text-sm text-gray-600 text-center">Tense and release muscles to relieve tension and sleep deeply.</p>
+          </div>
+          <div class="flip-card-back absolute w-full h-full bg-blue-100 rounded-2xl shadow-xl p-6 flex items-center justify-center">
+            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">
+              <button class="bg-gradient-to-r from-blue-400 to-green-400 text-white px-4 py-2 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm">
+                🎬 Watch Tutorial
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visualization Meditation -->
+      <div class="flip-card bg-transparent">
+        <div class="flip-card-inner relative w-full h-64">
+          <div class="flip-card-front absolute w-full h-full bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center">
+            <img src="images/visual.jpg" alt="Visualization Meditation" class="h-24 mb-3">
+            <h3 class="text-xl font-semibold text-blue-800">Visualization</h3>
+            <p class="text-sm text-gray-600 text-center">Imagine calming scenes to soothe your mind to sleep.</p>
+          </div>
+          <div class="flip-card-back absolute w-full h-full bg-blue-100 rounded-2xl shadow-xl p-6 flex items-center justify-center">
+            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">
+              <button class="bg-gradient-to-r from-blue-400 to-green-400 text-white px-4 py-2 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm">
+                🎬 Watch Tutorial
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yoga Nidra -->
+      <div class="flip-card bg-transparent">
+        <div class="flip-card-inner relative w-full h-64">
+          <div class="flip-card-front absolute w-full h-full bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center">
+            <img src="images/yoga.jpg" alt="Yoga Nidra" class="h-24 mb-3">
+            <h3 class="text-xl font-semibold text-blue-800">Yoga Nidra</h3>
+            <p class="text-sm text-gray-600 text-center">A guided yogic practice that induces full-body relaxation.</p>
+          </div>
+          <div class="flip-card-back absolute w-full h-full bg-blue-100 rounded-2xl shadow-xl p-6 flex items-center justify-center">
+            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">
+              <button class="bg-gradient-to-r from-blue-400 to-green-400 text-white px-4 py-2 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm">
+                🎬 Watch Tutorial
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Choose Your Favorite White Noise -->
+  <section class="p-8 bg-white rounded-t-3xl mt-10">
+    <h2 class="text-3xl font-bold text-center text-green-800 mb-6">
+      🌊 Choose Your Favorite White Noise
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Pure White Noise -->
+      <div class="flip-card bg-transparent">
+        <div class="flip-card-inner relative w-full h-64">
+          <div class="flip-card-front absolute w-full h-full bg-green-50 rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center">
+            <img src="images/whiteNoise.jpg" alt="Pure White Noise" class="h-24 mb-3">
+            <h3 class="text-xl font-semibold text-green-900">Pure White Noise</h3>
+            <p class="text-sm text-gray-600 text-center">Static sound that helps drown distractions for deep rest.</p>
+          </div>
+          <div class="flip-card-back absolute w-full h-full bg-green-200 rounded-2xl shadow-xl p-6 flex items-center justify-center">
+            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">
+              <button class="bg-gradient-to-r from-blue-400 to-green-400 text-white px-4 py-2 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm">
+                🎧 Listen Now
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ocean Waves -->
+      <div class="flip-card bg-transparent">
+        <div class="flip-card-inner relative w-full h-64">
+          <div class="flip-card-front absolute w-full h-full bg-green-50 rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center">
+            <img src="images/ocean.jpg" alt="Ocean Waves" class="h-24 mb-3">
+            <h3 class="text-xl font-semibold text-green-900">Ocean Waves</h3>
+            <p class="text-sm text-gray-600 text-center">Gentle wave sounds that mimic a beach for peaceful sleep.</p>
+          </div>
+          <div class="flip-card-back absolute w-full h-full bg-green-200 rounded-2xl shadow-xl p-6 flex items-center justify-center">
+            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">
+              <button class="bg-gradient-to-r from-blue-400 to-green-400 text-white px-4 py-2 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm">
+                🎧 Listen Now
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forest and Nature -->
+      <div class="flip-card bg-transparent">
+        <div class="flip-card-inner relative w-full h-64">
+          <div class="flip-card-front absolute w-full h-full bg-green-50 rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center">
+            <img src="images/fores.jpg" alt="Forest Sounds" class="h-24 mb-3">
+            <h3 class="text-xl font-semibold text-green-900">Forest Sounds</h3>
+            <p class="text-sm text-gray-600 text-center">Soothing chirps and rustles of nature for tranquil rest.</p>
+          </div>
+          <div class="flip-card-back absolute w-full h-full bg-green-200 rounded-2xl shadow-xl p-6 flex items-center justify-center">
+            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">
+              <button class="bg-gradient-to-r from-blue-400 to-green-400 text-white px-4 py-2 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm">
+                🎧 Listen Now
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rainfall -->
+      <div class="flip-card bg-transparent">
+        <div class="flip-card-inner relative w-full h-64">
+          <div class="flip-card-front absolute w-full h-full bg-green-50 rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center">
+            <img src="images/rain.jpg" alt="Rainfall" class="h-24 mb-3">
+            <h3 class="text-xl font-semibold text-green-900">Rainfall</h3>
+            <p class="text-sm text-gray-600 text-center">Pattering rain or thunder – perfect to drift off to dreamland.</p>
+          </div>
+          <div class="flip-card-back absolute w-full h-full bg-green-200 rounded-2xl shadow-xl p-6 flex items-center justify-center">
+            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">
+              <button class="bg-gradient-to-r from-blue-400 to-green-400 text-white px-4 py-2 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm">
+                🎧 Listen Now
+              </button>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <script>
+  const flipSound = document.getElementById("flipSound");
+  const cards = document.querySelectorAll(".flip-card");
+
+  let lastPlayed = 0;
+  const cooldown = 300;
+
+  cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      const now = Date.now();
+      if (now - lastPlayed > cooldown) {
+        flipSound.currentTime = 0;
+        flipSound.play();
+        lastPlayed = now;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
