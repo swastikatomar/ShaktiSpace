@@ -34,13 +34,11 @@ Curated for **every woman**, it covers everything from emotional clarity to cycl
 
 Tech that nurtures:
 
-\`\`\`bash
 Frontend:    HTML, CSS, JavaScript (React optional)
 Backend:     Node.js / Firebase
 Database:    MongoDB / Firestore
 Design:      Figma + Canva magic ✨
 Versioning:  GitHub + Good vibes 💻
-\`\`\`
 
 ---
 
